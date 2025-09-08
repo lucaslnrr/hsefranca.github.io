@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="48" viewBox="0 0 220 48">
+  <rect width="220" height="48" rx="10" fill="#121c3f"/>
+  <g transform="translate(12,10)" fill="none" stroke="#7ed957" stroke-width="2">
+    <path d="M0,12 C6,-4 18,-4 24,12 C30,28 42,28 48,12" />
+  </g>
+  <text x="70" y="30" font-family="Inter,Segoe UI,Arial" font-size="20" fill="#ffffff" font-weight="700">HSE Franca</text>
+</svg>

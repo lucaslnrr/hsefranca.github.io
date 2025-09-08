@@ -39,6 +39,12 @@ body{
   background:var(--accent); color:#fff; text-decoration:none;
   box-shadow:0 6px 18px rgba(46,125,50,.25);
 }
+.btns{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  border:0; border-radius:12px; padding:12px 16px; font-weight:700; cursor:pointer;
+  background:#ffffff5b; color:#fff; text-decoration:none;
+  box-shadow:0 6px 18px rgba(46,125,50,.25);
+}
 .btn:hover{ filter:brightness(1.03) }
 .btn-outline{ background:#fff; color:var(--accent); border:2px solid var(--accent) }
 .btn-outline:hover{ background:rgba(46,125,50,.07) }

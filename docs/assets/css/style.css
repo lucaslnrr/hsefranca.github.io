@@ -46,7 +46,7 @@ body{
   box-shadow:0 6px 18px rgba(46,125,50,.25);
 }
 .btn:hover{ filter:brightness(1.03) }
-.btn-outline{ background:#fff; color:var(--accent); border:2px solid var(--accent) }
+.btn-outline{ background:#ffffff5b; color:var(--accent); border:2px solid var(--accent) }
 .btn-outline:hover{ background:rgba(46,125,50,.07) }
 
 .hero{

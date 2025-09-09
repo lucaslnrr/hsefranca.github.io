@@ -49,7 +49,8 @@ img, video{max-width:100%; height:auto}
   background:#ffffff5b; color:#fff; text-decoration:none;
   box-shadow:0 6px 18px rgba(46,125,50,.25);
 }
-.btn:hover, .btns:hover{ filter:brightness(1.03) }
+.btn:hover{ filter:brightness(1.03) }
+.btns:hover{ filter:brightness(1.03); color:greenyellow }
 /* Proper outline button */
 .btn-outline{ background:transparent; color:var(--accent); border:2px solid var(--accent) }
 .btn-outline:hover{ background:rgba(46,125,50,.07) }

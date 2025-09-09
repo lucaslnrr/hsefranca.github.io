@@ -124,6 +124,63 @@ document.addEventListener('DOMContentLoaded', function(){
     // Init
     go(0);
   }
+
+  // ===== Services filters (Serviços page) =====
+  const servSection = document.getElementById('servicos');
+  const filtersWrap = servSection?.querySelector('.filters');
+  const cardsGrid = servSection?.querySelector('.cards');
+  if(filtersWrap && cardsGrid){
+    const pills = Array.from(filtersWrap.querySelectorAll('.pill'));
+    const cards = Array.from(cardsGrid.querySelectorAll('.card[data-cat]'));
+
+    function applyFilter(cat){
+      const target = cat && pills.find(p => p.dataset.filter === cat) ? cat : 'all';
+      pills.forEach(p => {
+        const isActive = (p.dataset.filter === target) || (target === 'all' && p.dataset.filter === 'all');
+        p.classList.toggle('active', isActive);
+        p.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      cards.forEach(c => {
+        const cats = (c.getAttribute('data-cat') || '').split(/\s+/);
+        const show = target === 'all' || cats.includes(target);
+        c.style.display = show ? '' : 'none';
+        c.toggleAttribute('hidden', !show);
+        c.setAttribute('aria-hidden', show ? 'false' : 'true');
+      });
+    }
+
+    // Delegated click + keyboard support
+    function onActivatePill(el){
+      const cat = el?.dataset?.filter || 'all';
+      applyFilter(cat);
+      const id = el.id || cat;
+      try { if(id) history.replaceState(null, '', `#${id}`); } catch(e){}
+    }
+    filtersWrap.addEventListener('click', (e) => {
+      const pill = e.target.closest?.('.pill');
+      if(pill && filtersWrap.contains(pill)) onActivatePill(pill);
+    });
+    filtersWrap.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' '){
+        const pill = e.target.closest?.('.pill');
+        if(pill && filtersWrap.contains(pill)){
+          e.preventDefault();
+          onActivatePill(pill);
+        }
+      }
+    });
+
+    // Initialize based on hash (e.g., #programas, #laudos, #treinamentos, #esocial)
+    function initFromHash(){
+      const raw = (location.hash || '').replace('#','').toLowerCase();
+      const cat = ['programas','laudos','treinamentos','esocial','all','todos'].includes(raw)
+        ? (raw === 'todos' ? 'all' : raw)
+        : 'all';
+      applyFilter(cat);
+    }
+    window.addEventListener('hashchange', initFromHash);
+    initFromHash();
+  }
 });
 
   // Arrow keys navigation

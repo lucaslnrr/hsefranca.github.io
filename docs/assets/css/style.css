@@ -210,6 +210,12 @@ img{max-width:100%; height:auto; display:block}
 @media (max-width: 780px){ .grid-2{ grid-template-columns:1fr } }
 .footer.section{ background:#f9fafb; padding:24px 0 }
 
+/* Breadcrumbs */
+.breadcrumb{ display:flex; gap:6px; align-items:center; flex-wrap:wrap; font-size:13px; color:#64748b; margin:6px 0 8px }
+.breadcrumb a{ color:inherit; text-decoration:none }
+.breadcrumb a:hover{ text-decoration:underline }
+.breadcrumb .sep{ opacity:.6 }
+
 
 /* Show hamburger only on smartphones */
 .hamburger{ display:none }
@@ -288,3 +294,32 @@ img{max-width:100%; height:auto; display:block}
 .nav a{ font-weight:600 }
 .btn{ border-radius:12px; padding:12px 16px; font-weight:700 }
 .section{ padding:48px 0 }
+
+/* FAQ styles */
+.faq{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px }
+.faq details{ background:#fff; border:1px solid var(--ring); border-radius:12px; padding:12px }
+.faq summary{ font-weight:600; cursor:pointer; list-style:none; outline:none }
+.faq summary::-webkit-details-marker{ display:none }
+.faq details[open]{ box-shadow:0 6px 18px rgba(2,6,23,.06) }
+.faq details > div{ margin-top:8px; color:#475569 }
+@media (max-width: 780px){ .faq{ grid-template-columns:1fr } }
+
+/* Alternate section styling to distinguish blocks */
+.section.alt{ background: linear-gradient(180deg, #f1f5f9 0%, #ffffff 100%); border-top:1px solid var(--ring); border-bottom:1px solid var(--ring) }
+.section.alt .card{ position:relative; background:#fff; border:1px solid #dbe0e6; box-shadow:0 8px 22px rgba(2,6,23,.06) }
+.section.alt .card::before{ content:""; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); border-top-left-radius:14px; border-top-right-radius:14px }
+
+/* Bold band section: clearly different from cards above */
+/* Dark background section with professional cards */
+.section.dark-cards{ background: linear-gradient(135deg, #0f172a 0%, #0b5a4a 100%); color:#fff }
+.section.dark-cards p.lead{ color:#e5e7eb }
+.section.dark-cards .cards{ display:grid; grid-template-columns: repeat(4, 1fr); gap:16px }
+.section.dark-cards .card{ background:#fff; border:1px solid var(--ring); border-radius:14px; padding:16px; box-shadow:0 8px 22px rgba(2,6,23,.14); color:var(--ink) }
+.section.dark-cards .card h2, .section.dark-cards .card h3{ color:var(--ink) }
+.section.dark-cards .card:hover{ transform: translateY(-4px); box-shadow:0 12px 30px rgba(2,6,23,.2) }
+.section.dark-cards .btn{ background:#fff; color:var(--primary); box-shadow:0 10px 24px rgba(0,0,0,.22) }
+.section.dark-cards .btn:hover{ filter:brightness(.98) }
+/* Center CTA button within dark-cards section */
+.section.dark-cards .cta{ display:flex; justify-content:center; margin-top:16px }
+@media (max-width: 1100px){ .section.dark-cards .cards{ grid-template-columns: repeat(2, 1fr) } }
+@media (max-width: 680px){ .section.dark-cards .cards{ grid-template-columns: 1fr } }

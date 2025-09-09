@@ -1,281 +1,289 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>HSE Franca — Segurança do Trabalho & Perícia</title>
-  <meta name="description" content="Programas legais, laudos, perícia judicial e treinamentos em Segurança do Trabalho para empresas de todos os portes.">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="icon" type="image/png" href="https://www.tesfire.com/wp-content/uploads/2025/07/SIerefire-4.png">
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<title>HSE Franca — Segurança do Trabalho &amp; Perícia</title>
+<meta content="Programas legais, laudos, perícia judicial e treinamentos em Segurança do Trabalho para empresas de todos os portes." name="description"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/><link href="https://www.tesfire.com/wp-content/uploads/2025/07/SIerefire-4.png" rel="icon" type="image/png"/>
+</meta><style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style></head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <div class="wrap">
-        <a class="brand" href="#top" aria-label="HSE Franca">
-          <img src="assets/img/logo.svg" alt="HSE Franca logo">
-          <span>HSE Franca</span>
-        </a>
-        <nav class="nav" aria-label="Navegação principal">
-          <a href="#servicos">Serviços</a>
-          <a href="#pericia">Perícia</a>
-          <a href="#treinamentos">Treinamentos NR</a>
-        
-          <a href="#contato" class="btn">Solicitar Orçamento</a>
-        </nav>
-        <button class="btn btn-outline" data-menu aria-label="Abrir menu">Menu</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <div class="grid">
-        <div>
-          <div class="badge">Segurança do Trabalho • Perícia • eSocial</div>
-          <h1>Gestão completa de <br> Saúde e Segurança Ocupacional</h1>
-          <p>Programas legais (GRO/PGR, PCMSO, LTCAT), laudos técnicos, perícia trabalhista, treinamentos oficiais e implantação de rotinas com foco em conformidade e redução de riscos.</p>
-          <div style="display:flex; gap:10px; flex-wrap:wrap">
-            <a class="btns" href="#contato">Fale com um especialista</a>
-            <a class="btns" href="#servicos">Ver todos os serviços</a>
-          </div>
-        </div>
-        <div>
-          <img src="assets/img/hero.jpg" alt="Equipe de segurança do trabalho em campo">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- KPIs -->
-  <section class="section">
-    <div class="container">
-      <div class="kpis">
-        <div class="kpi"><div class="small">Atuação</div><b>Vila Velha/ES e região</b></div>
-        <div class="kpi"><div class="small">Áreas atendidas</div><b>Indústria, Construção, Serviços</b></div>
-        <div class="kpi"><div class="small">Foco</div><b>Conformidade & ESG</b></div>
-        <div class="kpi"><div class="small">Entrega</div><b>Digital • eSocial</b></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Serviços -->
-  <section id="servicos" class="section">
-    <div class="container">
-      <h2>Nossos serviços</h2>
-      <p class="lead">Consultoria, programas, laudos e perícia — do diagnóstico à implantação.</p>
-
-      <div class="filters" role="tablist" aria-label="Filtros de serviços">
-        <div class="pill active" role="tab" tabindex="0" data-filter="all">Todos</div>
-        <div class="pill" role="tab" tabindex="0" data-filter="programas">Programas</div>
-        <div class="pill" role="tab" tabindex="0" data-filter="laudos">Laudos</div>
-        <div class="pill" role="tab" tabindex="0" data-filter="treinamentos">Treinamentos</div>
-        <div class="pill" role="tab" tabindex="0" data-filter="esocial">eSocial</div>
-      </div>
-
-      <div class="cards">
-        <!-- Programas -->
-        <article class="card" data-cat="programas esocial">
-          <img src="assets/img/servico-gro.jpg" alt="GRO/PGR">
-          <h3>GRO / PGR (NR-01)</h3>
-          <p>Inventário de Riscos, plano de ação e integração com rotinas eSocial. Atualização contínua e indicadores.</p>
-          <div class="badges"><span class="badge">Programas</span><span class="badge">eSocial</span></div>
-        </article>
-
-        <article class="card" data-cat="programas esocial">
-          <img src="assets/img/servico-gro.jpg" alt="PCMSO">
-          <h3>PCMSO (NR-07)</h3>
-          <p>Condução do Programa em conjunto com médico do trabalho, exames periódicos e emissão de ASO.</p>
-          <div class="badges"><span class="badge">Programas</span><span class="badge">eSocial</span></div>
-        </article>
-
-        <article class="card" data-cat="programas">
-          <img src="assets/img/servico-gro.jpg" alt="PCA e PPR">
-          <h3>PCA & PPR</h3>
-          <p>Programas de Conservação Auditiva e Proteção Respiratória com base em avaliações ambientais.</p>
-          <div class="badges"><span class="badge">Programas</span></div>
-        </article>
-
-        <!-- Laudos -->
-        <article class="card" data-cat="laudos esocial">
-          <img src="assets/img/servico-ltcat.jpg" alt="LTCAT">
-          <h3>LTCAT</h3>
-          <p>Laudo Técnico das Condições Ambientais do Trabalho para fins previdenciários e integração ao PPP.</p>
-          <div class="badges"><span class="badge">Laudos</span><span class="badge">eSocial</span></div>
-        </article>
-
-        <article class="card" data-cat="laudos esocial">
-          <img src="assets/img/servico-insalubridade.jpg" alt="Laudo de Insalubridade">
-          <h3>Laudo de Insalubridade</h3>
-          <p>Caracterização, quantificação e enquadramento conforme NR-15 e anexos.</p>
-          <div class="badges"><span class="badge">Laudos</span></div>
-        </article>
-
-        <article class="card" data-cat="laudos">
-          <img src="assets/img/servico-periculosidade.jpg" alt="Laudo de Periculosidade">
-          <h3>Laudo de Periculosidade</h3>
-          <p>Análise de exposição a inflamáveis, explosivos, eletricidade (NR-10) e motociclistas (Anexo 5).</p>
-          <div class="badges"><span class="badge">Laudos</span></div>
-        </article>
-
-        <article class="card" data-cat="laudos">
-          <img src="assets/img/servico-aet.jpg" alt="AET – Ergonomia">
-          <h3>AET – Ergonomia (NR-17)</h3>
-          <p>Análise ergonômica do trabalho com recomendações por posto/função e plano de adequações.</p>
-          <div class="badges"><span class="badge">Laudos</span></div>
-        </article>
-
-        <article class="card" data-cat="laudos">
-          <img src="assets/img/servico-aet.jpg" alt="Mapas & Inventários">
-          <h3>Mapa de Riscos & Inventário</h3>
-          <p>Estruturação visual de perigos, riscos e controles para comunicação interna e auditorias.</p>
-          <div class="badges"><span class="badge">Laudos</span></div>
-        </article>
-
-        <!-- Treinamentos (resumo) -->
-        <article class="card" data-cat="treinamentos">
-          <img src="assets/img/servico-nrs.jpg" alt="Treinamentos NR">
-          <h3>Treinamentos NR</h3>
-          <p>Principais: NR-05, NR-06, NR-10, NR-11, NR-12, NR-20, NR-23, NR-33, NR-35.</p>
-          <div class="badges"><span class="badge">Treinamentos</span></div>
-          <a href="#treinamentos" class="btn btn-outline">Ver detalhes</a>
-        </article>
-
-        <article class="card" data-cat="esocial">
-          <img src="assets/img/servico-gro.jpg" alt="eSocial SST">
-          <h3>eSocial SST (S-2210, S-2220 e S-2240)</h3>
-          <p>Processos e integrações para eventos de SST, PPP eletrônico e consistência cadastral.</p>
-          <div class="badges"><span class="badge">eSocial</span></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Perícia -->
-  <section id="pericia" class="section">
-    <div class="container split">
-      <div>
-        <h2>Perícia de segurança do trabalho</h2>
-        <p class="lead">Atuação como Consultor Ténico ou elaboração de laudos particulares com rigor metodológico.</p>
-        <div class="list">
-          <div class="li">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div>Quesitos técnicos, memoriais, cálculos de adicional de insalubridade/periculosidade.</div>
-          </div>
-          <div class="li">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div>Acompanhamento de vistorias, entrevistas e registros fotográficos.</div>
-          </div>
-          <div class="li">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div>Impugnação de laudos e pareceres técnicos fundamentados.</div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <img src="assets/img/servico-pericia.jpg" alt="Documento e prancheta representando perícia">
-      </div>
-    </div>
-  </section>
-
-  <!-- Treinamentos -->
-  <section id="treinamentos" class="section">
-    <div class="container">
-      <h2>Treinamentos NR (principais)</h2>
-      <p class="lead">Capacitações com material didático, registro e certificados.</p>
-      <div class="table-wrap">
-        <table class="table" aria-label="Tabela de treinamentos">
-          <thead><tr>
-            <th>NR</th><th>Título</th><th>Carga horária</th><th>Validade</th><th>Público</th>
-          </tr></thead>
-          <tbody>
-            <tr><td>NR-05</td><td>CIPA</td><td>8–20h</td><td>Anual</td><td>Membros da CIPA</td></tr>
-            <tr><td>NR-06</td><td>EPI</td><td>4–8h</td><td>2 anos</td><td>Todos os colaboradores</td></tr>
-            <tr><td>NR-10</td><td>Básico / SEP</td><td>40h / 40h</td><td>2 anos</td><td>Trabalhos com eletricidade</td></tr>
-            <tr><td>NR-11</td><td>Empilhadeira / Ponte Rolante</td><td>8–16h</td><td>1–2 anos</td><td>Operadores</td></tr>
-            <tr><td>NR-12</td><td>Máquinas e Equip.</td><td>8–16h</td><td>2 anos</td><td>Operadores e manutenção</td></tr>
-            <tr><td>NR-17</td><td>Ergonomia (AET)</td><td>—</td><td>—</td><td>Gestores e Ergonomistas</td></tr>
-            <tr><td>NR-20</td><td>Inflamáveis</td><td>8–16h</td><td>2 anos</td><td>Postos e indústrias</td></tr>
-            <tr><td>NR-23</td><td>Brigada de Incêndio</td><td>8–12h</td><td>Anual</td><td>Brigadistas</td></tr>
-            <tr><td>NR-33</td><td>Espaço Confinado</td><td>16–40h</td><td>1 ano</td><td>Autorizados e Vigias</td></tr>
-            <tr><td>NR-35</td><td>Trabalho em Altura</td><td>8–16h</td><td>2 anos</td><td>Trabalhos acima de 2m</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- Clientes -->
-  <section id="clientes" class="section">
-    <div class="container">
-      <h2>Alguns segmentos atendidos</h2>
-      <p class="lead">Adaptamos o escopo conforme porte e ramo de atividade.</p>
-      <div class="cards">
-        <article class="cardholder"><img src="assets/img/placeholder.svg" alt=""><h3>Indústria</h3><p>Metalúrgica, plásticos, alimentos, móveis.</p></article>
-        <article class="cardholder"><img src="assets/img/placeholder.svg" alt=""><h3>Construção</h3><p>Obras civis, loteamentos, infraestrutura.</p></article>
-        <article class="cardholder"><img src="assets/img/placeholder.svg" alt=""><h3>Serviços</h3><p>Logística, facilities, hospitais, varejo.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contato -->
-  <section id="contato" class="section">
-    <div class="container split">
-      <div>
-        <h2>Vamos falar sobre seu projeto?</h2>
-        <p class="lead">Envie uma mensagem — retornamos com um diagnóstico inicial e proposta personalizada.</p>
-        <form onsubmit="event.preventDefault(); alert('Mensagem enviada! (Configure seu backend ou use um serviço de formulários)');" class="list" aria-label="Formulário de contato">
-          <input aria-label="Nome" required name="nome" placeholder="Seu nome" style="padding:12px;border-radius:10px;border:1px solid var(--ring)">
-          <input aria-label="E-mail" required type="email" name="email" placeholder="Seu e-mail" style="padding:12px;border-radius:10px;border:1px solid var(--ring)">
-          <input aria-label="Telefone" name="telefone" placeholder="Seu telefone (opcional)" style="padding:12px;border-radius:10px;border:1px solid var(--ring)">
-          <textarea aria-label="Mensagem" required name="mensagem" placeholder="Conte um pouco da sua necessidade" rows="5" style="padding:12px;border-radius:10px;border:1px solid var(--ring)"></textarea>
-          <button class="btn" type="submit">Enviar</button>
-        </form>
-      </div>
-      <div>
-        <div class="card">
-          <h3>HSE Franca</h3>
-          <p>Consultoria em Segurança do Trabalho & Perícia</p>
-          <p><b>Telefone:</b> (98) 99248-6540</p>
-          <p><b>E-mail:</b> contato@hsefranca.com.br</p>
-          <p><b>Endereço:</b> Vila Velha/ES • Atendimento regional</p>
-          <p class="small">Substitua os dados acima pelos seus.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="grid">
-        <a class="brand" href="#top">
-          <img src="assets/img/logo.svg" alt="HSE Franca logo"><span>HSE Franca</span>
-        </a>
-        <div>
-          <div><b>Contato</b></div>
-          <div>contato@hsefranca.com.br</div>
-          <div>(98) 99248-6540</div>
-        </div>
-        <div>
-          <div><b>Atendimento</b></div>
-          <div>Seg–Sex 8h–18h</div>
-          <div>Vila Velha/ES e região</div>
-        </div>
-      </div>
-      <div style="margin-top:14px; font-size:12px; color:#94a3b8">
-  <a href="https://www.sierefire.com/" style="color:inherit; text-decoration:none;">
+<!-- Header -->
+<header class="header">
+<div class="container">
+<div class="wrap">
+<a aria-label="HSE Franca" class="brand" href="#top">
+<img alt="HSE Franca logo" src="assets/img/logo.svg"/>
+<span>HSE Franca</span>
+</a>
+<nav aria-label="Navegação principal" class="nav" id="site-nav" role="navigation">
+<a href="#servicos">Serviços</a>
+<a href="#pericia">Perícia</a>
+<a href="#treinamentos">Treinamentos NR</a>
+<a class="btn" href="#contato">Solicitar Orçamento</a>
+</nav>
+<button aria-expanded="false" aria-label="Abrir menu" class="btn btn-outline hamburger" data-menu="" data-target="#site-nav"><span class="sr-only">Abrir menu</span></button>
+</div>
+</div>
+</header>
+<!-- Hero -->
+<section aria-label="Destaques" class="hero-carousel"><div class="slide light amarelo active" data-index="0"><div class="container"><div class="grid"><div><div class="badge">Setembro Amarelo • Valorização da Vida</div><h1>Prevenção ao Suicídio no Ambiente de Trabalho</h1><p>Durante setembro, reforçamos ações de conscientização sobre saúde mental. Implementamos palestras, diálogos de segurança e protocolos de acolhimento para equipes — com foco em identificar sinais e orientar encaminhamentos.</p><div style="display:flex; gap:10px; flex-wrap:wrap"><a class="btn" href="#contato">Agendar uma ação interna</a><a class="btn btn-outline" href="#servicos">Ver programas e palestras</a></div></div><div><img alt="Campanha Setembro Amarelo na empresa" src="assets/img/hero-sept-amarelo.jpg"/></div></div></div></div><div class="slide dark institucional" data-index="1"><div class="container"><div class="grid"><div><div class="badge">Segurança do Trabalho • Perícia</div><h1>Gestão completa em SST para sua empresa</h1><p>Do levantamento de riscos aos laudos e treinamentos NR, entregamos conformidade com produtividade. PGR, PCMSO, LTCAT, PPP/eSocial e perícia com metodologia prática.</p><div style="display:flex; gap:10px; flex-wrap:wrap"><a class="btn" href="#contato">Solicitar orçamento</a><a class="btn btn-outline light" href="#servicos">Explorar serviços</a></div></div><div><img alt="Equipe de segurança do trabalho em campo" src="assets/img/hero.jpg"/></div></div></div></div><div class="carousel-controls"><button aria-label="Slide anterior" class="ctrl prev" data-prev="">‹</button><div class="dots"><button aria-label="Ir para o slide 1" class="dot active" data-go="0"></button><button aria-label="Ir para o slide 2" class="dot" data-go="1"></button></div><button aria-label="Próximo slide" class="ctrl next" data-next="">›</button></div></section>
+<!-- KPIs -->
+<section class="section">
+<div class="container">
+<div class="kpis">
+<div class="kpi"><div class="small">Atuação</div><b>Vila Velha/ES e região</b></div>
+<div class="kpi"><div class="small">Áreas atendidas</div><b>Indústria, Construção, Serviços</b></div>
+<div class="kpi"><div class="small">Foco</div><b>Conformidade &amp; ESG</b></div>
+<div class="kpi"><div class="small">Entrega</div><b>Digital • eSocial</b></div>
+</div>
+</div>
+</section>
+<!-- Serviços -->
+<section class="section" id="servicos">
+<div class="container">
+<h2>Nossos serviços</h2>
+<p class="lead">Consultoria, programas, laudos e perícia — do diagnóstico à implantação.</p>
+<div aria-label="Filtros de serviços" class="filters" role="tablist">
+<div class="pill active" data-filter="all" role="tab" tabindex="0">Todos</div>
+<div class="pill" data-filter="programas" role="tab" tabindex="0">Programas</div>
+<div class="pill" data-filter="laudos" role="tab" tabindex="0">Laudos</div>
+<div class="pill" data-filter="treinamentos" role="tab" tabindex="0">Treinamentos</div>
+<div class="pill" data-filter="esocial" role="tab" tabindex="0">eSocial</div>
+</div>
+<div class="cards">
+<!-- Programas -->
+<article class="card" data-cat="programas esocial">
+<img alt="GRO/PGR" src="assets/img/servico-gro.jpg"/>
+<h3>GRO / PGR (NR-01)</h3>
+<p>Inventário de Riscos, plano de ação e integração com rotinas eSocial. Atualização contínua e indicadores.</p>
+<div class="badges"><span class="badge">Programas</span><span class="badge">eSocial</span></div>
+</article>
+<article class="card" data-cat="programas esocial">
+<img alt="PCMSO" src="assets/img/servico-gro.jpg"/>
+<h3>PCMSO (NR-07)</h3>
+<p>Condução do Programa em conjunto com médico do trabalho, exames periódicos e emissão de ASO.</p>
+<div class="badges"><span class="badge">Programas</span><span class="badge">eSocial</span></div>
+</article>
+<article class="card" data-cat="programas">
+<img alt="PCA e PPR" src="assets/img/servico-gro.jpg"/>
+<h3>PCA &amp; PPR</h3>
+<p>Programas de Conservação Auditiva e Proteção Respiratória com base em avaliações ambientais.</p>
+<div class="badges"><span class="badge">Programas</span></div>
+</article>
+<!-- Laudos -->
+<article class="card" data-cat="laudos esocial">
+<img alt="LTCAT" src="assets/img/servico-ltcat.jpg"/>
+<h3>LTCAT</h3>
+<p>Laudo Técnico das Condições Ambientais do Trabalho para fins previdenciários e integração ao PPP.</p>
+<div class="badges"><span class="badge">Laudos</span><span class="badge">eSocial</span></div>
+</article>
+<article class="card" data-cat="laudos esocial">
+<img alt="Laudo de Insalubridade" src="assets/img/servico-insalubridade.jpg"/>
+<h3>Laudo de Insalubridade</h3>
+<p>Caracterização, quantificação e enquadramento conforme NR-15 e anexos.</p>
+<div class="badges"><span class="badge">Laudos</span></div>
+</article>
+<article class="card" data-cat="laudos">
+<img alt="Laudo de Periculosidade" src="assets/img/servico-periculosidade.jpg"/>
+<h3>Laudo de Periculosidade</h3>
+<p>Análise de exposição a inflamáveis, explosivos, eletricidade (NR-10) e motociclistas (Anexo 5).</p>
+<div class="badges"><span class="badge">Laudos</span></div>
+</article>
+<article class="card" data-cat="laudos">
+<img alt="AET – Ergonomia" src="assets/img/servico-aet.jpg"/>
+<h3>AET – Ergonomia (NR-17)</h3>
+<p>Análise ergonômica do trabalho com recomendações por posto/função e plano de adequações.</p>
+<div class="badges"><span class="badge">Laudos</span></div>
+</article>
+<article class="card" data-cat="laudos">
+<img alt="Mapas &amp; Inventários" src="assets/img/servico-aet.jpg"/>
+<h3>Mapa de Riscos &amp; Inventário</h3>
+<p>Estruturação visual de perigos, riscos e controles para comunicação interna e auditorias.</p>
+<div class="badges"><span class="badge">Laudos</span></div>
+</article>
+<!-- Treinamentos (resumo) -->
+<article class="card" data-cat="treinamentos">
+<img alt="Treinamentos NR" src="assets/img/servico-nrs.jpg"/>
+<h3>Treinamentos NR</h3>
+<p>Principais: NR-05, NR-06, NR-10, NR-11, NR-12, NR-20, NR-23, NR-33, NR-35.</p>
+<div class="badges"><span class="badge">Treinamentos</span></div>
+<a class="btn btn-outline" href="#treinamentos">Ver detalhes</a>
+</article>
+<article class="card" data-cat="esocial">
+<img alt="eSocial SST" src="assets/img/servico-gro.jpg"/>
+<h3>eSocial SST (S-2210, S-2220 e S-2240)</h3>
+<p>Processos e integrações para eventos de SST, PPP eletrônico e consistência cadastral.</p>
+<div class="badges"><span class="badge">eSocial</span></div>
+</article>
+</div>
+</div>
+</section>
+<!-- Perícia -->
+<section class="section" id="pericia">
+<div class="container split">
+<div>
+<h2>Perícia de segurança do trabalho</h2>
+<p class="lead">Atuação como Consultor Ténico ou elaboração de laudos particulares com rigor metodológico.</p>
+<div class="list">
+<div class="li">
+<svg fill="none" height="18" viewbox="0 0 24 24" width="18"><path d="M20 6L9 17l-5-5" stroke="#2e7d32" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div>Quesitos técnicos, memoriais, cálculos de adicional de insalubridade/periculosidade.</div>
+</div>
+<div class="li">
+<svg fill="none" height="18" viewbox="0 0 24 24" width="18"><path d="M20 6L9 17l-5-5" stroke="#2e7d32" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div>Acompanhamento de vistorias, entrevistas e registros fotográficos.</div>
+</div>
+<div class="li">
+<svg fill="none" height="18" viewbox="0 0 24 24" width="18"><path d="M20 6L9 17l-5-5" stroke="#2e7d32" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div>Impugnação de laudos e pareceres técnicos fundamentados.</div>
+</div>
+</div>
+</div>
+<div>
+<img alt="Documento e prancheta representando perícia" src="assets/img/servico-pericia.jpg"/>
+</div>
+</div>
+</section>
+<!-- Treinamentos -->
+<section class="section" id="treinamentos">
+<div class="container">
+<h2>Treinamentos NR (principais)</h2>
+<p class="lead">Capacitações com material didático, registro e certificados.</p>
+<div class="table-wrap">
+<table aria-label="Tabela de treinamentos" class="table">
+<thead><tr>
+<th>NR</th><th>Título</th><th>Carga horária</th><th>Validade</th><th>Público</th>
+</tr></thead>
+<tbody>
+<tr><td>NR-05</td><td>CIPA</td><td>8–20h</td><td>Anual</td><td>Membros da CIPA</td></tr>
+<tr><td>NR-06</td><td>EPI</td><td>4–8h</td><td>2 anos</td><td>Todos os colaboradores</td></tr>
+<tr><td>NR-10</td><td>Básico / SEP</td><td>40h / 40h</td><td>2 anos</td><td>Trabalhos com eletricidade</td></tr>
+<tr><td>NR-11</td><td>Empilhadeira / Ponte Rolante</td><td>8–16h</td><td>1–2 anos</td><td>Operadores</td></tr>
+<tr><td>NR-12</td><td>Máquinas e Equip.</td><td>8–16h</td><td>2 anos</td><td>Operadores e manutenção</td></tr>
+<tr><td>NR-17</td><td>Ergonomia (AET)</td><td>—</td><td>—</td><td>Gestores e Ergonomistas</td></tr>
+<tr><td>NR-20</td><td>Inflamáveis</td><td>8–16h</td><td>2 anos</td><td>Postos e indústrias</td></tr>
+<tr><td>NR-23</td><td>Brigada de Incêndio</td><td>8–12h</td><td>Anual</td><td>Brigadistas</td></tr>
+<tr><td>NR-33</td><td>Espaço Confinado</td><td>16–40h</td><td>1 ano</td><td>Autorizados e Vigias</td></tr>
+<tr><td>NR-35</td><td>Trabalho em Altura</td><td>8–16h</td><td>2 anos</td><td>Trabalhos acima de 2m</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Clientes -->
+<section class="section" id="clientes">
+<div class="container">
+<h2>Alguns segmentos atendidos</h2>
+<p class="lead">Adaptamos o escopo conforme porte e ramo de atividade.</p>
+<div class="cards">
+<article class="cardholder"><img alt="" src="assets/img/placeholder.svg"/><h3>Indústria</h3><p>Metalúrgica, plásticos, alimentos, móveis.</p></article>
+<article class="cardholder"><img alt="" src="assets/img/placeholder.svg"/><h3>Construção</h3><p>Obras civis, loteamentos, infraestrutura.</p></article>
+<article class="cardholder"><img alt="" src="assets/img/placeholder.svg"/><h3>Serviços</h3><p>Logística, facilities, hospitais, varejo.</p></article>
+</div>
+</div>
+</section>
+<!-- Contato -->
+<section class="section" id="contato">
+<div class="container split">
+<div>
+<h2>Vamos falar sobre seu projeto?</h2>
+<p class="lead">Envie uma mensagem — retornamos com um diagnóstico inicial e proposta personalizada.</p>
+<form aria-label="Formulário de contato" class="list" onsubmit="event.preventDefault(); alert('Mensagem enviada! (Configure seu backend ou use um serviço de formulários)');">
+<input aria-label="Nome" name="nome" placeholder="Seu nome" required="" style="padding:12px;border-radius:10px;border:1px solid var(--ring)"/>
+<input aria-label="E-mail" name="email" placeholder="Seu e-mail" required="" style="padding:12px;border-radius:10px;border:1px solid var(--ring)" type="email"/>
+<input aria-label="Telefone" name="telefone" placeholder="Seu telefone (opcional)" style="padding:12px;border-radius:10px;border:1px solid var(--ring)"/>
+<textarea aria-label="Mensagem" name="mensagem" placeholder="Conte um pouco da sua necessidade" required="" rows="5" style="padding:12px;border-radius:10px;border:1px solid var(--ring)"></textarea>
+<button class="btn" type="submit">Enviar</button>
+</form>
+</div>
+<div>
+<div class="card">
+<h3>HSE Franca</h3>
+<p>Consultoria em Segurança do Trabalho &amp; Perícia</p>
+<p><b>Telefone:</b> (98) 99248-6540</p>
+<p><b>E-mail:</b> contato@hsefranca.com.br</p>
+<p><b>Endereço:</b> Vila Velha/ES • Atendimento regional</p>
+<p class="small">Substitua os dados acima pelos seus.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="grid">
+<a class="brand" href="#top">
+<img alt="HSE Franca logo" src="assets/img/logo.svg"/><span>HSE Franca</span>
+</a>
+<div>
+<div><b>Contato</b></div>
+<div>contato@hsefranca.com.br</div>
+<div>(98) 99248-6540</div>
+</div>
+<div>
+<div><b>Atendimento</b></div>
+<div>Seg–Sex 8h–18h</div>
+<div>Vila Velha/ES e região</div>
+</div>
+</div>
+<div style="margin-top:14px; font-size:12px; color:#94a3b8">
+<a href="https://www.sierefire.com/" style="color:inherit; text-decoration:none;">
     © <span id="y"></span> siereFire - Soluções em Tecnologia.
   </a>
 </div>
+</div>
+<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</footer>
+<script src="assets/js/main.js"></script>
 
-    </div>
-    <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
-  </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  // Mobile menu
+  const btn = document.querySelector('[data-menu]');
+  const nav = document.querySelector(btn?.dataset?.target || '#site-nav');
+  if(btn && nav){
+    btn.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.documentElement.classList.toggle('no-scroll', open);
+    });
+  }
 
-  <script src="assets/js/main.js"></script>
+  // Carousel
+  const carousel = document.querySelector('.hero-carousel');
+  if(carousel){
+    const slides = Array.from(carousel.querySelectorAll('.slide'));
+    const dots = Array.from(carousel.querySelectorAll('.dot'));
+    let i = 0, timer = null, INTERVAL = 6000;
+
+    function go(n){
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s,idx)=>{
+        const active = idx === i;
+        s.classList.toggle('active', active);
+        s.setAttribute('aria-hidden', active ? 'false' : 'true');
+      });
+      dots.forEach((d,idx)=>d.classList.toggle('active', idx===i));
+      restart();
+    }
+    function next(){ go(i+1); }
+    function prev(){ go(i-1); }
+    function restart(){
+      if(timer) clearInterval(timer);
+      timer = setInterval(next, INTERVAL);
+    }
+    carousel.querySelector('[data-next]')?.addEventListener('click', next);
+    carousel.querySelector('[data-prev]')?.addEventListener('click', prev);
+    dots.forEach(d=>d.addEventListener('click', (e)=>go(parseInt(e.currentTarget.dataset.go,10))));
+    carousel.addEventListener('mouseenter', ()=>{ if(timer) clearInterval(timer); });
+    carousel.addEventListener('mouseleave', restart);
+    go(0);
+  }
+});
+</script>
 </body>
 </html>

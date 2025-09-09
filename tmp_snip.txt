@@ -1,0 +1,5 @@
+      <div class="cards">
+        <article class="cardholder"><img src="assets/img/placeholder.svg" alt=""><h3>Indústria</h3><p>Metalúrgica, plásticos, alimentos, móveis.</p></article>
+        <article class="cardholder"><img src="assets/img/placeholder.svg" alt=""><h3>Construção</h3><p>Obras civis, loteamentos, infraestrutura.</p></article>
+        <article class="cardholder"><img src="assets/img/placeholder.svg" alt=""><h3>Serviços</h3><p>Logística, facilities, hospitais, varejo.</p></article>
+      </div>

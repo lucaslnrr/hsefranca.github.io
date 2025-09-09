@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Ícone Indústria">
+  <title>Indústria</title>
+  <g fill="none" stroke="#2e7d32" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Ground -->
+    <path d="M8 108h112" />
+    <!-- Factory body -->
+    <rect x="22" y="58" width="84" height="50" rx="6"/>
+    <!-- Sawtooth roof / stepped section -->
+    <path d="M22 58l18-12 12 12 14-12 12 12 16-12v12" />
+    <!-- Chimney -->
+    <rect x="86" y="30" width="14" height="28" rx="3"/>
+    <!-- Smoke -->
+    <path d="M95 22c6 0 11 4 11 9 0 3-2 6-5 7"/>
+    <!-- Windows -->
+    <path d="M32 74h16M56 74h16M80 74h16M32 90h16M56 90h16M80 90h16" />
+  </g>
+</svg>
+

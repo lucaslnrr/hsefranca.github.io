@@ -27,4 +27,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Footer year
   const y = document.getElementById('y');
   if (y) y.textContent = new Date().getFullYear();
+
+  // Swap placeholder images for icons in Clientes cardholders
+  try {
+    const imgs = document.querySelectorAll('#clientes .cardholder img');
+    if (imgs && imgs.length >= 3) {
+      const icons = [
+        { src: 'assets/img/icon-industria.svg', alt: 'Icone Industria' },
+        { src: 'assets/img/icon-construcao.svg', alt: 'Icone Construcao' },
+        { src: 'assets/img/icon-servicos.svg', alt: 'Icone Servicos' },
+      ];
+      icons.forEach((ico, i) => {
+        imgs[i].setAttribute('src', ico.src);
+        imgs[i].setAttribute('alt', ico.alt);
+      });
+    }
+  } catch (e) {
+    // no-op
+  }
 });

@@ -49,9 +49,14 @@ img, video{max-width:100%; height:auto}
   background:#ffffff5b; color:#fff; text-decoration:none;
   box-shadow:0 6px 18px rgba(46,125,50,.25);
 }
-.btn:hover{ filter:brightness(1.03) }
-.btn-outline{ background:#ffffff5b; color:var(--accent); border:2px solid var(--accent) }
+.btn:hover, .btns:hover{ filter:brightness(1.03) }
+/* Proper outline button */
+.btn-outline{ background:transparent; color:var(--accent); border:2px solid var(--accent) }
 .btn-outline:hover{ background:rgba(46,125,50,.07) }
+/* In hero, make outline match primary CTA */
+.hero .btn-outline{ background:#ffffff5b; color:#fff; border:0; border-color:transparent }
+/* Hover parity inside hero */
+.hero .btn-outline:hover{ filter:brightness(1.03) }
 
 .hero{
   background:linear-gradient(135deg, rgba(18,28,63,1), rgba(46,125,50,0.92));

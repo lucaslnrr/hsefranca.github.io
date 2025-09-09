@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Ícone Construção">
+  <title>Construção</title>
+  <g fill="none" stroke="#2e7d32" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Hard hat dome -->
+    <path d="M20 80a44 44 0 0 1 88 0" />
+    <!-- Hat ribs -->
+    <path d="M64 38v18M48 42l-4 14M80 42l4 14" />
+    <!-- Brim -->
+    <path d="M14 82h100" />
+    <!-- Base band -->
+    <rect x="22" y="82" width="84" height="18" rx="6" />
+  </g>
+</svg>
+

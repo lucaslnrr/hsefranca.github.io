@@ -347,6 +347,9 @@ img{max-width:100%; height:auto; display:block}
 .section.alt{ background: linear-gradient(180deg, #f1f5f9 0%, #ffffff 100%); border-top:1px solid var(--ring); border-bottom:1px solid var(--ring) }
 .section.alt .card{ position:relative; background:#fff; border:1px solid #dbe0e6; box-shadow:0 8px 22px rgba(2,6,23,.06) }
 .section.alt .card::before{ content:""; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); border-top-left-radius:14px; border-top-right-radius:14px }
+.section.alt .cards{ grid-template-columns: repeat(3, 1fr) }
+@media (max-width: 960px){ .section.alt .cards{ grid-template-columns: repeat(2, 1fr) } }
+@media (max-width: 640px){ .section.alt .cards{ grid-template-columns: 1fr } }
 
 /* Bold band section: clearly different from cards above */
 /* Dark background section with professional cards */

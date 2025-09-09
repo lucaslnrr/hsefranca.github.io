@@ -355,8 +355,9 @@ img{max-width:100%; height:auto; display:block}
 
 /* Clients section — stronger contrast and elevation */
 .section.clients{ background: linear-gradient(180deg, #f8fafc 0%, #d8d3d3 100%); border-top:1px solid #e5e7eb; }
-.section.clients h2{ position:relative; }
-.section.clients h2::after{ content:""; display:block; width:56px; height:3px; background:var(--accent); border-radius:999px; margin-top:8px }
+.section.clients h2{ position:relative; text-align:center }
+.section.clients .lead{ text-align:center }
+.section.clients h2::after{ content:""; display:block; width:56px; height:3px; background:var(--accent); border-radius:999px; margin:8px auto 0 auto }
 .section.clients .card{
   position:relative; background:#fff; border:1px solid #e2e8f0; border-radius:16px;
   box-shadow: 0 10px 28px rgba(2,6,23,.08), 0 3px 8px rgba(2,6,23,.05);

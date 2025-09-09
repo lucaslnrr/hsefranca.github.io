@@ -242,6 +242,21 @@ img{max-width:100%; height:auto; display:block}
 }
 .carousel-controls .prev{ left:12px }
 .carousel-controls .next{ right:12px }
+/* Play/Pause control */
+.carousel-controls .play{
+  pointer-events:auto; position:absolute; right:12px; bottom:12px;
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:999px; border:1px solid #ffffff80;
+  background:#0000003a; color:#fff; backdrop-filter: blur(4px);
+}
+@media (max-width: 920px){ .carousel-controls .play{ display:none } }
+/* Play/Pause control */
+.carousel-controls .play{
+  pointer-events:auto; position:absolute; right:12px; bottom:12px;
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:999px; border:1px solid #ffffff80;
+  background:#0000003a; color:#fff; backdrop-filter: blur(4px);
+}
 
 /* Dots at bottom center */
 .carousel-controls .dots{
@@ -254,9 +269,9 @@ img{max-width:100%; height:auto; display:block}
   .hero-carousel:hover .carousel-controls .ctrl{ opacity:1 }
 }
 
-/* Hide arrows on small screens */
+/* Show arrows on small screens with compact size */
 @media (max-width: 920px){
-  .carousel-controls .ctrl{ display:none }
+  .carousel-controls .ctrl{ display:inline-flex; width:34px; height:34px; background:#0000004a; opacity:.95 }
 }
 
 
@@ -267,9 +282,25 @@ img{max-width:100%; height:auto; display:block}
 }
 .hero-carousel .slide.active{ opacity:1 }
 .hero-carousel .slide .grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:22px; align-items:center }
+/* Text panel for readability */
+.hero-carousel .slide.light .grid > div:first-child{ background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.82)); color:#1f2937; border:1px solid #e2e8f0; border-radius:16px; padding:18px; backdrop-filter: blur(6px) }
+.hero-carousel .slide.dark .grid > div:first-child{ background: linear-gradient(135deg, rgba(2,6,23,.45), rgba(2,6,23,.35)); color:#fff; border:1px solid #334155; border-radius:16px; padding:18px; backdrop-filter: blur(6px) }
+.hero-carousel .slide .grid > div:first-child .badge{ margin-bottom:10px }
+.hero-carousel .slide .grid > div:first-child .btn{ margin-top:0 }
+.hero-carousel .slide .grid > div:first-child > div:last-child{ display:flex; gap:10px; flex-wrap:wrap }
+/* Content panel for better text contrast */
+.hero-carousel .hero-panel{ border-radius:16px; padding:18px; border:1px solid #ffffff3a; backdrop-filter: blur(6px) }
+.hero-carousel .slide.light .hero-panel{ background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.82)); color:#1f2937; border-color:#e2e8f0 }
+.hero-carousel .slide.dark .hero-panel{ background: linear-gradient(135deg, rgba(2,6,23,.45), rgba(2,6,23,.35)); color:#fff; border-color:#334155 }
+.hero-carousel .hero-panel .badge{ margin-bottom:10px }
+.hero-carousel .hero-cta{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px }
+/* Enter animation for slide content */
+.hero-carousel .slide .grid > div{ opacity:0; transform: translateY(10px); transition: opacity .45s ease, transform .45s ease }
+.hero-carousel .slide.active .grid > div{ opacity:1; transform:none }
+.hero-carousel .slide.active .grid > div:nth-child(2){ transition-delay:.08s }
 @media (max-width: 920px){
   .hero-carousel .slide .grid{ grid-template-columns:1fr }
-  .hero-carousel .slide img{ max-height:220px; margin-top:14px }
+  .hero-carousel .slide img{ max-height:260px; margin-top:14px; object-fit:cover }
 }
 /* Backgrounds */
 .hero-carousel .slide.amarelo{ background: linear-gradient(135deg, #FFF8E1 0%, #FFF59D 30%, #FBC02D 75%) }
@@ -280,8 +311,16 @@ img{max-width:100%; height:auto; display:block}
 .hero-carousel .slide.dark .btn.btn-outline:hover{ background:#ffffff14 }
 
 /* Dots */
-.carousel-controls .dot{ width:10px; height:10px; border-radius:999px; border:1px solid #ffffffaa; background:#ffffff44 }
-.carousel-controls .dot.active{ background:#fff }
+.carousel-controls .dot{
+  position:relative; width:12px; height:12px; border-radius:999px;
+  border:1px solid #ffffffa8; background:#ffffff3a; overflow:hidden;
+}
+.carousel-controls .dot::after{
+  content:""; position:absolute; inset:0; width:0%; background:#fff; opacity:.9;
+}
+.carousel-controls .dot.active{ border-color:#fff; background:#ffffff50 }
+.carousel-controls .dot.active::after{ animation: dot-fill var(var(--carousel-interval, 10000ms)) linear forwards }
+@keyframes dot-fill{ from{ width:0% } to{ width:100% } }
 
 
 /* Force show the menu button on desktop too */
@@ -323,3 +362,10 @@ img{max-width:100%; height:auto; display:block}
 .section.dark-cards .cta{ display:flex; justify-content:center; margin-top:16px }
 @media (max-width: 1100px){ .section.dark-cards .cards{ grid-template-columns: repeat(2, 1fr) } }
 @media (max-width: 680px){ .section.dark-cards .cards{ grid-template-columns: 1fr } }
+
+/* Reduced motion: disable autoplay animation and content transitions */
+@media (prefers-reduced-motion: reduce){
+  .hero-carousel .slide{ transition:none }
+  .hero-carousel .slide .grid > div{ transition:none; opacity:1; transform:none }
+  .carousel-controls .dot.active::after{ animation:none; width:0 }
+}

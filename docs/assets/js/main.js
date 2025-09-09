@@ -25,12 +25,17 @@ document.addEventListener('DOMContentLoaded', function(){
       controls = document.createElement('div');
       controls.className = 'carousel-controls';
       const prevBtn = document.createElement('button');
-      prevBtn.className = 'ctrl prev'; prevBtn.setAttribute('data-prev',''); prevBtn.setAttribute('aria-label','Slide anterior'); prevBtn.textContent = '‹';
+      prevBtn.className = 'ctrl prev'; prevBtn.setAttribute('data-prev',''); prevBtn.setAttribute('aria-label','Slide anterior'); prevBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
       const dotsWrap = document.createElement('div');
       dotsWrap.className = 'dots';
       const nextBtn = document.createElement('button');
       nextBtn.className = 'ctrl next'; nextBtn.setAttribute('data-next',''); nextBtn.setAttribute('aria-label','Próximo slide'); nextBtn.textContent = '›';
       controls.append(prevBtn, dotsWrap, nextBtn);
+      // Add play/pause button
+      const playBtn = document.createElement('button');
+      playBtn.className = 'play'; playBtn.setAttribute('aria-label','Pausar reprodução automática'); playBtn.setAttribute('data-playing','true');
+      playBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 6h2v12h-2zM16 6h2v12h-2z" fill="#fff"/></svg>';
+      controls.appendChild(playBtn);
       carousel.appendChild(controls);
     }
 
@@ -48,6 +53,19 @@ document.addEventListener('DOMContentLoaded', function(){
     const dots = Array.from(dotsWrap.querySelectorAll('.dot'));
     let i = 0, timer = null;
     let INTERVAL = 10000; // 10s
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(prefersReduced){ INTERVAL = 0; }
+    carousel.style.setProperty('--carousel-interval', INTERVAL + 'ms');
+
+    // ARIA labels for slides
+    (function labelSlides(){
+      const total = slides.length;
+      slides.forEach((s, idx) => {
+        s.setAttribute('role','group');
+        s.setAttribute('aria-roledescription','slide');
+        s.setAttribute('aria-label', `Slide ${idx+1} de ${total}`);
+      });
+    })();
 
     function go(n){
       i = (n + slides.length) % slides.length;
@@ -69,11 +87,28 @@ document.addEventListener('DOMContentLoaded', function(){
 
     function restart(){
       if(timer) clearInterval(timer);
-      timer = setInterval(next, INTERVAL);
+      if(INTERVAL > 0 && isPlaying()){
+        timer = setInterval(next, INTERVAL);
+      }
     }
 
-    controls.querySelector('[data-next]')?.addEventListener('click', next);
-    controls.querySelector('[data-prev]')?.addEventListener('click', prev);
+    const nextEl = controls.querySelector('[data-next]');
+    const prevEl = controls.querySelector('[data-prev]');
+    if(prevEl) prevEl.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    if(nextEl) nextEl.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    let playEl = controls.querySelector('.play');
+    if(!playEl){
+      playEl = document.createElement('button');
+      playEl.className = 'play'; playEl.setAttribute('aria-label','Pausar reprodução automática'); playEl.setAttribute('data-playing','true');
+      playEl.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 6h2v12h-2zM16 6h2v12h-2z" fill="#fff"/></svg>';
+      controls.appendChild(playEl);
+    }
+    nextEl?.addEventListener('click', next);
+    prevEl?.addEventListener('click', prev);
+    function isPlaying(){ return (playEl?.getAttribute('data-playing') !== 'false'); }
+    function pause(){ if(timer) clearInterval(timer); playEl?.setAttribute('data-playing','false'); playEl?.setAttribute('aria-label','Reproduzir automaticamente'); if(playEl){ playEl.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 5v14l11-7-11-7z" fill="#fff"/></svg>'; } }
+    function play(){ playEl?.setAttribute('data-playing','true'); playEl?.setAttribute('aria-label','Pausar reprodução automática'); if(playEl){ playEl.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 6h2v12h-2zM16 6h2v12h-2z" fill="#fff"/></svg>'; } restart(); }
+    playEl?.addEventListener('click', () => { isPlaying() ? pause() : play(); });
     dots.forEach(d => d.addEventListener('click', (e) => {
       const n = parseInt(e.currentTarget.getAttribute('data-go'), 10);
       if (!Number.isNaN(n)) go(n);
@@ -82,6 +117,16 @@ document.addEventListener('DOMContentLoaded', function(){
     // Pause on hover (desktop)
     carousel.addEventListener('mouseenter', () => { if(timer) clearInterval(timer); });
     carousel.addEventListener('mouseleave', restart);
+
+    // Pause when not visible or off-screen
+    document.addEventListener('visibilitychange', () => { if(document.hidden){ if(timer) clearInterval(timer); } else { restart(); } });
+    try{
+      const io = new IntersectionObserver((entries)=>{
+        const e = entries[0]; if(!e) return;
+        if(e.isIntersecting) restart(); else if(timer) clearInterval(timer);
+      }, { threshold: .5 });
+      io.observe(carousel);
+    }catch(_){ }
 
     // Swipe support (touch & pointer)
     let startX = null, startY = null, dx = 0, dy = 0, swiping = false;
@@ -123,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // Init
     go(0);
+    if(prefersReduced){ pause(); }
   }
 
   // ===== Services filters (Serviços page) =====

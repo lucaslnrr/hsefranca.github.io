@@ -49,8 +49,7 @@ img, video{max-width:100%; height:auto}
   background:#ffffff5b; color:#fff; text-decoration:none;
   box-shadow:0 6px 18px rgba(46,125,50,.25);
 }
-.btn:hover{ filter:brightness(1.03) }
-.btns:hover{ filter:brightness(1.03); color:greenyellow }
+.btn:hover, .btns:hover{ filter:brightness(1.03) }
 /* Proper outline button */
 .btn-outline{ background:transparent; color:var(--accent); border:2px solid var(--accent) }
 .btn-outline:hover{ background:rgba(46,125,50,.07) }
@@ -188,3 +187,99 @@ img, video{max-width:100%; height:auto}
 }
 
 img{max-width:100%; height:auto; display:block}
+
+
+
+.nav a.active{ color:var(--accent) }
+.nav a.active::after{ transform:scaleX(1) }
+.page-hero{ background: linear-gradient(135deg, rgba(18,28,63,1), rgba(46,125,50,0.92)); color:#fff; padding:48px 0 }
+.page-hero h1{ margin:0 0 8px 0 } .page-hero .lead{ margin:0; color:#e5e7eb }
+.section{ padding:42px 0 }
+.cards{ display:grid; grid-template-columns: repeat(4, 1fr); gap:16px }
+.card{ background:#fff; border:1px solid var(--ring); border-radius:14px; padding:16px; box-shadow:0 4px 14px rgba(2,6,23,.05) }
+@media (max-width: 1100px){ .cards{ grid-template-columns: repeat(2, 1fr) } }
+@media (max-width: 680px){ .cards{ grid-template-columns: 1fr } }
+.form label{ display:block; font-weight:600; margin-bottom:6px }
+.form input,.form textarea, .form select{ width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--ring); background:#fff }
+.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:12px } .grid-2 .full{ grid-column:1 / -1 }
+@media (max-width: 780px){ .grid-2{ grid-template-columns:1fr } }
+.footer.section{ background:#f9fafb; padding:24px 0 }
+
+
+/* Show hamburger only on smartphones */
+.hamburger{ display:none }
+@media (max-width: 920px){
+  .hamburger{ display:inline-flex }
+}
+
+/* Third slide background */
+.hero-carousel .slide.pericia{
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0b5a4a 100%);
+}
+
+
+/* === Carousel arrows: desktop visible (hover brighter), hidden on mobile === */
+.hero-carousel { position: relative; }
+.carousel-controls{ position:absolute; inset:0; z-index:5; pointer-events:none }
+.carousel-controls .ctrl{
+  pointer-events:auto;
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:42px; height:42px; border-radius:999px;
+  border:1px solid #ffffff80; background:#0000003a; color:#fff; backdrop-filter: blur(4px);
+  display:flex; align-items:center; justify-content:center; font-size:22px; line-height:1;
+  opacity:.75; transition: opacity .2s ease, background .2s ease;
+}
+.carousel-controls .prev{ left:12px }
+.carousel-controls .next{ right:12px }
+
+/* Dots at bottom center */
+.carousel-controls .dots{
+  pointer-events:auto;
+  position:absolute; left:0; right:0; bottom:14px; display:flex; gap:8px; justify-content:center
+}
+
+/* Hover brighten (desktop) */
+@media (hover:hover){
+  .hero-carousel:hover .carousel-controls .ctrl{ opacity:1 }
+}
+
+/* Hide arrows on small screens */
+@media (max-width: 920px){
+  .carousel-controls .ctrl{ display:none }
+}
+
+
+/* ===== Hero Carousel Base (fixed) ===== */
+.hero-carousel{ position:relative; overflow:hidden; min-height:68vh }
+.hero-carousel .slide{
+  position:absolute; inset:0; display:flex; align-items:center; opacity:0; transition:opacity .6s ease; padding:64px 0;
+}
+.hero-carousel .slide.active{ opacity:1 }
+.hero-carousel .slide .grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:22px; align-items:center }
+@media (max-width: 920px){
+  .hero-carousel .slide .grid{ grid-template-columns:1fr }
+  .hero-carousel .slide img{ max-height:220px; margin-top:14px }
+}
+/* Backgrounds */
+.hero-carousel .slide.amarelo{ background: linear-gradient(135deg, #FFF8E1 0%, #FFF59D 30%, #FBC02D 75%) }
+.hero-carousel .slide.institucional{ background: linear-gradient(135deg, rgba(18,28,63,1) 0%, rgba(46,125,50,0.92) 100%) }
+.hero-carousel .slide.dark{ color:#fff }
+.hero-carousel .slide.light{ color:#1f2937 }
+.hero-carousel .slide.dark .btn.btn-outline{ color:#fff; border-color:#ffffff80; background:transparent }
+.hero-carousel .slide.dark .btn.btn-outline:hover{ background:#ffffff14 }
+
+/* Dots */
+.carousel-controls .dot{ width:10px; height:10px; border-radius:999px; border:1px solid #ffffffaa; background:#ffffff44 }
+.carousel-controls .dot.active{ background:#fff }
+
+
+/* Force show the menu button on desktop too */
+.hamburger{ display:inline-flex }
+
+
+/* Minor polish for professional look */
+.header{ padding:12px 0 }
+.brand span{ font-weight:800 }
+.nav a{ font-weight:600 }
+.btn{ border-radius:12px; padding:12px 16px; font-weight:700 }
+.section{ padding:48px 0 }

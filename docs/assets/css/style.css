@@ -397,13 +397,18 @@ img{max-width:100%; height:auto; display:block}
   box-shadow: 0 12px 26px rgba(2,6,23,.16), 0 3px 10px rgba(2,6,23,.12);
   color:var(--ink);
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  overflow:hidden;
 }
-.section.dark-cards .card::before{ content:""; position:absolute; top:0; left:0; right:0; height:3px; background: linear-gradient(90deg, rgba(46,125,50,.95), rgba(46,125,50,.55)); border-top-left-radius:16px; border-top-right-radius:16px }
+.section.dark-cards .card::before{ content:""; position:absolute; top:0; left:0; right:0; height:4px; background: linear-gradient(90deg, var(--accent), rgba(46,125,50,.6)); border-top-left-radius:16px; border-top-right-radius:16px }
 .section.dark-cards .card h2, .section.dark-cards .card h3{ color:var(--primary) }
 .section.dark-cards .card p{ color:#475569 }
 .section.dark-cards .card:hover{ transform: translateY(-6px); box-shadow:0 18px 40px rgba(2,6,23,.22), 0 6px 16px rgba(2,6,23,.12); border-color:#cbd5e1 }
 .section.dark-cards .card:focus-visible{ outline:3px solid rgba(46,125,50,.3); outline-offset:2px }
 .section.dark-cards .card .icon{ width:60px; height:60px; border-radius:14px; background: linear-gradient(135deg, #ecfdf5, #e8f5ee); border:1px solid #d7e7dc; box-shadow: inset 0 0 0 6px #fff; display:inline-flex; align-items:center; justify-content:center; transition: transform .18s ease, filter .18s ease }
+.section.dark-cards .card .icon svg path,
+.section.dark-cards .card .icon svg rect,
+.section.dark-cards .card .icon svg line,
+.section.dark-cards .card .icon svg circle{ stroke: var(--accent) !important }
 .section.dark-cards .card .icon svg{ display:block }
 .section.dark-cards .card:hover .icon{ transform: translateY(-1px); filter:brightness(1.05) }
 .section.dark-cards .card .actions{ margin-top:10px }

@@ -10,6 +10,7 @@
 
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
+html{scroll-behavior:smooth; scroll-padding-top:70px}
 body{
   font: 15px/1.55 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color:var(--ink); background:var(--bg);
@@ -17,6 +18,9 @@ body{
 }
 
 .container{max-width:1150px;margin:0 auto;padding:0 18px}
+
+/* Media elements scale nicely on mobile */
+img, video{max-width:100%; height:auto}
 
 .header{
   position:sticky; top:0; z-index:20;
@@ -59,7 +63,7 @@ body{
 .hero h1{font-size:36px; line-height:1.15; margin:0 0 14px 0}
 .hero p{opacity:.9; margin:0 0 22px 0}
 .hero .badge{display:inline-block; background:rgba(255,255,255,.12); padding:8px 12px; border-radius:999px; margin-bottom:12px; font-size:12px}
-.hero img{border-radius:16px;height: 150px}
+.hero img{border-radius:16px; width:100%; height:auto}
 
 .section{padding:56px 0}
 .section h2{font-size:28px; margin:0 0 8px 0}
@@ -72,7 +76,7 @@ body{
   display:flex; flex-direction:column; gap:10px;
 }
 .card img{width:100%; height:160px; object-fit:cover; border-radius:12px}
-.cardholder img{width:100%; height:160px; object-fit:fit; border-radius:12px}
+.cardholder img{width:100%; height:160px; object-fit:contain; border-radius:12px}
 .card h3{margin:4px 0 0 0; font-size:18px}
 .badges{display:flex; gap:8px; flex-wrap:wrap}
 .badge{display:inline-flex; align-items:center; gap:6px; font-size:12px; background:#eef2ff; color:#1f2937; padding:6px 10px; border-radius:999px}
@@ -95,6 +99,9 @@ body{
 .table th,.table td{padding:12px 14px; text-align:left; border-bottom:1px solid var(--ring)}
 .table thead th{background:#f1f5f9; font-size:13px; text-transform:uppercase; letter-spacing:.3px; color:#475569}
 .table tbody tr:hover{background:#fafafa}
+
+/* wrap for wide tables on small screens */
+.table-wrap{width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch}
 
 .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
 .kpi{background:#fff; border:1px solid var(--ring); border-radius:14px; padding:14px}
@@ -121,4 +128,11 @@ body{
   .nav{display:none}
   .nav.open{display:flex; flex-direction:column; align-items:flex-start; background:#fff; padding:12px; border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,.06)}
   .brand span{display:none}
+
+  .hero h1{font-size:28px}
+  .filters{overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .filters .pill{flex:0 0 auto}
+  .kpis{grid-template-columns:1fr}
+  .footer .grid{grid-template-columns:1fr}
+  .table th,.table td{padding:10px 12px}
 }

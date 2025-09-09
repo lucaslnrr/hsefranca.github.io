@@ -354,7 +354,7 @@ img{max-width:100%; height:auto; display:block}
 @media (max-width: 640px){ .section.alt .cards{ grid-template-columns: 1fr } }
 
 /* Clients section — stronger contrast and elevation */
-.section.clients{ background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); border-top:1px solid #e5e7eb; }
+.section.clients{ background: linear-gradient(180deg, #f8fafc 0%, #d8d3d3 100%); border-top:1px solid #e5e7eb; }
 .section.clients h2{ position:relative; }
 .section.clients h2::after{ content:""; display:block; width:56px; height:3px; background:var(--accent); border-radius:999px; margin-top:8px }
 .section.clients .card{

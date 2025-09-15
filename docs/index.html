@@ -78,34 +78,143 @@
 </div>
 </section>
 <!-- Clientes -->
-<section class="section clients" id="clientes">
-<div class="container">
-<h2>Áreas de Atuação</h2>
-<p class="lead">Adaptamos o escopo conforme porte e ramo de atividade.</p>
-<div class="cards">
-  <a class="card" href="servicos.html#programas" aria-label="Indústria — ver serviços de Programas">
-    <div class="icon"><img src="assets/img/icon-industria.svg" alt="Ícone Indústria"></div>
-    <h3>Indústria</h3>
-    <p>Metalúrgica, plásticos, alimentos, móveis.</p>
-  </a>
-  <a class="card" href="servicos.html#laudos" aria-label="Construção — ver serviços de Laudos">
-    <div class="icon"><img src="assets/img/icon-construcao.svg" alt="Ícone Construção"></div>
-    <h3>Construção Civil</h3>
-    <p>Obras civis, loteamentos, infraestrutura.</p>
-  </a>
-  <a class="card" href="servicos.html#treinamentos" aria-label="Serviços — ver serviços de Treinamentos">
-    <div class="icon"><img src="assets/img/icon-servicos.svg" alt="Ícone Serviços"></div>
-    <h3>Serviços</h3>
-    <p>Logística, facilities, hospitais, varejo.</p>
-  </a>
-  <a class="card" href="servicos.html#esocial" aria-label="Setor Público — ver serviços de eSocial">
-    <div class="icon"><img src="assets/img/icon-publico.svg" alt="Ícone Setor Público"></div>
-    <h3>Setor Público</h3>
-    <p>Prefeituras, autarquias, escolas e hospitais públicos.</p>
-  </a>
-</div>
-</div>
+<section id="areas" class="areas uabb-like">
+  <style>
+    /* ====== Scoped styles: only affect this section (.uabb-like) ====== */
+    .uabb-like{
+      --areas-primary: #0c57d6;
+      --areas-text: #2b2b2b;
+      --areas-border: #e9ecef;
+      --areas-bg: #ffffff;
+      padding: 64px 0;
+      background: var(--areas-bg);
+    }
+    .uabb-like .uabb-row-separator{
+      height: 24px;
+      background: linear-gradient(to bottom, rgba(0,0,0,.035), rgba(0,0,0,0));
+      margin-bottom: 24px;
+    }
+    .uabb-like .areas-container{ max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+    .uabb-like .areas-grid{
+      display: grid;
+      gap: 28px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+    @media (max-width: 992px){
+      .uabb-like .areas-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 640px){
+      .uabb-like .areas-grid{ grid-template-columns: 1fr; }
+    }
+
+    .uabb-like .infobox{
+      text-align: center;
+      background: #fff;
+      border: 1px solid var(--areas-border);
+      border-radius: 16px;
+      padding: 28px 22px;
+      box-shadow: 0 8px 28px rgba(0,0,0,.06);
+      display: flex; flex-direction: column; align-items: center;
+      transition: transform .25s ease, box-shadow .25s ease;
+      min-height: 100%;
+    }
+    .uabb-like .infobox:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(0,0,0,.08);
+    }
+
+    .uabb-like .infobox-photo img{
+      display: block;
+      width: 132px; height: 132px;
+      object-fit: contain;
+      margin: 0 auto 16px;
+    }
+
+    .uabb-like .infobox-title{
+      font-size: 1.25rem;
+      line-height: 1.3;
+      margin: 6px 0 8px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .uabb-like .infobox-text{
+      color: var(--areas-text);
+      line-height: 1.65;
+      font-size: 1rem;
+    }
+
+    .uabb-like .infobox-btn{
+      margin-top: auto;
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: var(--areas-primary);
+      color: #fff;
+      border: 1px solid var(--areas-primary);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+    }
+    .uabb-like .infobox-btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(12,87,214,.3);
+    }
+
+    /* Scoped animations (unique names to avoid collisions) */
+    @keyframes areasSlideInLeft{ from{opacity:0; transform:translateX(-24px)} to{opacity:1; transform:none} }
+    @keyframes areasSlideInUp{ from{opacity:0; transform:translateY(24px)} to{opacity:1; transform:none} }
+    @keyframes areasSlideInRight{ from{opacity:0; transform:translateX(24px)} to{opacity:1; transform:none} }
+
+    .uabb-like .slide-in-left{ animation: areasSlideInLeft .8s ease both; }
+    .uabb-like .slide-in-up{ animation: areasSlideInUp .8s ease both; }
+    .uabb-like .slide-in-right{ animation: areasSlideInRight .8s ease both; }
+  </style>
+
+  <div class="uabb-row-separator uabb-top-row-separator"></div>
+
+  <div class="areas-container">
+    <div class="areas-grid">
+
+      <!-- Card 1 -->
+      <article class="infobox slide-in-left">
+        <div class="infobox-photo">
+          <img src="assets/img/areas/seguranca.png" alt="Segurança do Trabalho" width="512" height="512" />
+        </div>
+        <h3 class="infobox-title">Segurança do Trabalho</h3>
+        <p class="infobox-text">
+          Realizamos a emissão de documentos de SST, como Programas, Laudos, Treinamentos e outros, para garantir a segurança e a saúde dos trabalhadores e a segurança jurídica da sua empresa.
+        </p>
+        <a class="infobox-btn" href="seguranca-do-trabalho.html" aria-label="Saiba mais">Saiba mais</a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="infobox slide-in-up">
+        <div class="infobox-photo">
+          <img src="assets/img/areas/saude-ocupacional.png" alt="Saúde Ocupacional" width="512" height="512" />
+        </div>
+        <h3 class="infobox-title">Saúde Ocupacional</h3>
+        <p class="infobox-text">
+          Oferecemos gestão de saúde ocupacional e realização de exames admissionais, periódicos e demissionais para avaliar as condições da saúde dos colaboradores.
+        </p>
+        <a class="infobox-btn" href="saude-ocupacional.html" aria-label="Saiba mais">Saiba mais</a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="infobox slide-in-right">
+        <div class="infobox-photo">
+          <img src="assets/img/areas/higiene-ocupacional.png" alt="Higiene Ocupacional" width="512" height="512" />
+        </div>
+        <h3 class="infobox-title">Higiene Ocupacional</h3>
+        <p class="infobox-text">
+          Identificação, avaliação e controle de agentes físicos, químicos e biológicos presentes nos ambientes de trabalho.
+        </p>
+        <a class="infobox-btn" href="seguranca-do-trabalho.html#higiene" aria-label="Saiba mais">Saiba mais</a>
+      </article>
+
+    </div>
+  </div>
 </section>
+
 <!-- Hero -->
 
 <!-- KPIs 

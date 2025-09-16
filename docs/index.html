@@ -8,6 +8,8 @@
 <meta content="Programas legais, laudos, perícia judicial e treinamentos em Segurança do Trabalho para empresas de todos os portes." name="description"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="assets/css/style.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/><link href="https://www.tesfire.com/wp-content/uploads/2025/07/SIerefire-4.png" rel="icon" type="image/png"/>
 </meta></head>
 <body>
@@ -78,140 +80,213 @@
 </div>
 </section>
 <!-- Clientes -->
-<section id="areas" class="areas uabb-like">
+<section id="solucoes-atuacao" class="unified uabb-like">
   <style>
-    /* ===== Scoped to this section only ===== */
-    .uabb-like{
-      --areas-primary: #1c3155;
-      --areas-text: #2b2b2b;
-      --areas-border: #e9ecef;
-      --areas-bg: #ffffff;
-      padding: 64px 0;
-      background:#edf3ff82;
+    /* ---------- Scoped to this section only ---------- */
+    .unified{
+      --accent: #0c57d6;
+      --bg: #f7f9fc;
+      --card-bg: #ffffff;
+      --text: #2b2b2b;
+      --muted: #6b7280;
+      --ring: rgba(12,87,214,.15);
+
+      position: relative;
+      padding: 72px 0;
+      background: radial-gradient(1200px 600px at 10% -10%, #e9f0ff 0%, transparent 60%),
+                  radial-gradient(1000px 520px at 110% 20%, #eef6ff 0%, transparent 60%),
+                  var(--bg);
+      overflow: hidden;
     }
-    .uabb-like .uabb-row-separator{
-      height: 24px;
+
+    .unified .wrap{ max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+
+    .unified .supheading{
+      display:inline-flex; align-items:center; gap:.5rem;
+      font-size:.875rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+      color: var(--accent); background: #fff; border:1px solid #e5efff;
+      padding:.35rem .6rem; border-radius:999px; box-shadow:0 8px 24px rgba(12,87,214,.06);
+    }
+    .unified h2{
+      margin: 10px 0 8px; font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); line-height:1.2;
+      color:#0e1a2b; font-weight:800;
+    }
+    .unified .lede{
+      max-width: 780px; color: var(--muted); line-height:1.7; margin-bottom: 28px;
+    }
+
+    /* filter pills (optional, just visual — no filter logic yet) */
+    .unified .pills{ display:flex; flex-wrap:wrap; gap:.5rem; margin: 18px 0 28px; }
+    .unified .pill{
+      border:1px solid #e8edf5; background:#fff; color:#334155; border-radius:999px;
+      padding:.45rem .8rem; font-size:.9rem; cursor:default;
+      box-shadow: 0 4px 14px rgba(17,24,39,.05);
+    }
+    .unified .pill.is-active{ border-color: var(--accent); color: var(--accent); background: #f3f7ff; }
+
+    /* grid */
+    .unified .grid{
+      display:grid; gap: 22px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    @media (max-width: 992px){ .unified .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width: 640px){ .unified .grid{ grid-template-columns: 1fr; } }
+
+    /* card */
+    .unified .card{
+      background: var(--card-bg);
+      border: 1px solid #eaeef6;
+      border-radius: 18px;
+      padding: 22px 18px;
+      box-shadow: 0 10px 28px rgba(2, 12, 32, .06);
+      display:flex; flex-direction:column; align-items:center; text-align:center;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .unified .card:hover{
+      transform: translateY(-6px);
+      border-color: var(--ring);
+      box-shadow: 0 16px 44px rgba(12,87,214,.12);
+    }
+
+    .unified .icon{
+      width: 84px; height: 84px; border-radius: 18px;
+      display:grid; place-items:center; margin-bottom: 14px;
+      background: conic-gradient(from 180deg at 50% 50%, rgba(12,87,214,.08), transparent 40%),
+                  #f6f9ff;
+      outline: 1px solid #eaf1ff;
+    }
+    .unified .icon img{ width: 56px; height: 56px; object-fit: contain; }
+
+    .unified .title{
+      font-weight: 800; letter-spacing: .2px;
+      font-size: 1.06rem; color:#0e1a2b; margin: 6px 0 6px;
+    }
+
+    .unified .desc{ color: var(--text); line-height: 1.65; font-size: .99rem; }
+    .unified .cta{
+      margin-top:auto; margin-bottom: 2px;
+      display:inline-block; padding: 10px 16px; border-radius: 999px;
+      text-decoration: none; font-weight: 600;
+      background: var(--accent); color:#fff; border:1px solid var(--accent);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .unified .cta:hover{ transform: translateY(-2px); box-shadow: 0 8px 22px rgba(12,87,214,.25); }
+
+    /* subtle separator */
+    .unified .separator{
+      height: 24px; margin-bottom: 24px;
       background: linear-gradient(to bottom, rgba(0,0,0,.035), rgba(0,0,0,0));
-      margin-bottom: 24px;
+      border-radius: 999px;
     }
-    .uabb-like .areas-container{ max-width:1160px; margin:0 auto; padding:0 20px; }
-    .uabb-like .areas-grid{
-      display:grid; gap:28px;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-    }
-    @media (max-width: 992px){ .uabb-like .areas-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-    @media (max-width: 640px){ .uabb-like .areas-grid{ grid-template-columns:1fr; } }
 
-    .uabb-like .infobox{
-      text-align:center;
-      background:#fff;
-      border:1px solid var(--areas-border);
-      border-radius:16px;
-      padding:28px 22px;
-      box-shadow:0 8px 28px rgba(0,0,0,.06);
-      display:flex; flex-direction:column; align-items:center;
-      transition:transform .25s ease, box-shadow .25s ease;
-      min-height:100%;
+    /* small footnote */
+    .unified .foot{
+      margin-top: 26px; color: #5b6472; font-size: .92rem;
     }
-    .uabb-like .infobox:hover{ transform:translateY(-4px); box-shadow:0 14px 36px rgba(0,0,0,.08); }
-
-    .uabb-like .infobox-photo img{
-      display:block; width:132px; height:132px; object-fit:contain; margin:0 auto 16px;
-    }
-    .uabb-like .infobox-title{ font-size:1.25rem; line-height:1.3; margin:6px 0 8px; font-weight:700; color:#111; }
-    .uabb-like .infobox-text{ color:var(--areas-text); line-height:1.65; font-size:1rem; }
-    .uabb-like .infobox-btn{
-      margin-top:auto; display:inline-block; padding:10px 18px; border-radius:999px; text-decoration:none;
-      background:var(--areas-primary); color:#fff; border:1px solid var(--areas-primary);
-      transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
-    }
-    .uabb-like .infobox-btn:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(12,87,214,.3); }
   </style>
 
-  <div class="uabb-row-separator uabb-top-row-separator"></div>
+  <div class="wrap">
+    <div class="separator" aria-hidden="true"></div>
 
-  <div class="areas-container">
-    <div class="areas-grid">
+    <span class="supheading" data-aos="fade-right">Soluções & Áreas de Atuação</span>
+    <h2 data-aos="fade-up">Tudo que sua empresa precisa em SST, Saúde Ocupacional e mais</h2>
+    <p class="lede" data-aos="fade-up" data-aos-delay="80">
+      Unificamos nossas principais soluções e áreas de atuação em um único lugar — mais limpo,
+      mais humano e fácil de navegar.
+    </p>
 
-      <!-- 1) Segurança do Trabalho — icon: health -->
-      <article class="infobox">
-        <div class="infobox-photo">
-          <img src="assets/img/sierefire.png" alt="Segurança do Trabalho" width="512" height="512" loading="lazy">
+    <div class="pills" aria-hidden="true" data-aos="fade-up" data-aos-delay="120">
+      <span class="pill is-active">Tudo</span>
+      <span class="pill">SST</span>
+      <span class="pill">Saúde</span>
+      <span class="pill">Ambiental</span>
+      <span class="pill">Gestão</span>
+    </div>
+
+    <div class="grid">
+      <!-- 1) Segurança do Trabalho -->
+      <article class="card" data-aos="fade-up">
+        <div class="icon">
+          <img src="assets/img/sierefire.png" alt="Ícone Segurança do Trabalho" loading="lazy">
         </div>
-        <h3 class="infobox-title">Segurança do Trabalho</h3>
-        <p class="infobox-text">
-          Realizamos a emissão de documentos de SST, como Programas, Laudos, Treinamentos, e outros, para garantir a
-          segurança e a saúde dos trabalhadores e a segurança jurídica da sua empresa.
+        <h3 class="title">Segurança do Trabalho</h3>
+        <p class="desc">
+          Realizamos a emissão de documentos de SST, como Programas, Laudos, Treinamentos, e outros, para garantir
+          a segurança e a saúde dos trabalhadores e a segurança jurídica da sua empresa.
         </p>
-        <a class="infobox-btn" href="#" aria-label="Saiba mais sobre Segurança do Trabalho">Saiba mais</a>
+        <a class="cta" href="#" aria-label="Saiba mais sobre Segurança do Trabalho">Saiba mais</a>
       </article>
 
-      <!-- 2) Saúde Ocupacional — icon: healthcare -->
-      <article class="infobox">
-        <div class="infobox-photo">
-          <img src="assets/img/sierefire.png" alt="Saúde Ocupacional" width="512" height="512" loading="lazy">
+      <!-- 2) Saúde Ocupacional -->
+      <article class="card" data-aos="fade-up" data-aos-delay="60">
+        <div class="icon">
+          <img src="assets/img/sierefire.png" alt="Ícone Saúde Ocupacional" loading="lazy">
         </div>
-        <h3 class="infobox-title">Saúde Ocupacional</h3>
-        <p class="infobox-text">
+        <h3 class="title">Saúde Ocupacional</h3>
+        <p class="desc">
           Oferecemos gestão de saúde ocupacional e realização de exames admissionais, periódicos e demissionais,
           para avaliar as condições da saúde dos colaboradores.
         </p>
-        <a class="infobox-btn" href="#" aria-label="Saiba mais sobre Saúde Ocupacional">Saiba mais</a>
+        <a class="cta" href="#" aria-label="Saiba mais sobre Saúde Ocupacional">Saiba mais</a>
       </article>
 
-      <!-- 3) Higiene Ocupacional — icon: seeding -->
-      <article class="infobox">
-        <div class="infobox-photo">
-          <img src="assets/img/sierefire.png" alt="Higiene Ocupacional" width="512" height="512" loading="lazy">
+      <!-- 3) Higiene Ocupacional -->
+      <article class="card" data-aos="fade-up" data-aos-delay="120">
+        <div class="icon">
+          <img src="assets/img/sierefire.png" alt="Ícone Higiene Ocupacional" loading="lazy">
         </div>
-        <h3 class="infobox-title">Higiene Ocupacional</h3>
-        <p class="infobox-text">
+        <h3 class="title">Higiene Ocupacional</h3>
+        <p class="desc">
           Oferecemos serviços de Higiene Ocupacional para identificação, avaliação e controle de agentes físicos,
           químicos e biológicos presentes nos ambientes de trabalho.
         </p>
-        <a class="infobox-btn" href="#" aria-label="Saiba mais sobre Higiene Ocupacional">Saiba mais</a>
+        <a class="cta" href="#" aria-label="Saiba mais sobre Higiene Ocupacional">Saiba mais</a>
       </article>
 
-      <!-- 4) Gestão Ambiental — icon: doctor -->
-      <article class="infobox">
-        <div class="infobox-photo">
-          <img src="assets/img/sierefire.png" alt="Gestão Ambiental" width="512" height="512" loading="lazy">
+      <!-- 4) Gestão Ambiental -->
+      <article class="card" data-aos="fade-up">
+        <div class="icon">
+          <img src="assets/img/sierefire.png" alt="Ícone Gestão Ambiental" loading="lazy">
         </div>
-        <h3 class="infobox-title">Gestão Ambiental</h3>
-        <p class="infobox-text">
+        <h3 class="title">Gestão Ambiental</h3>
+        <p class="desc">
           Realizamos estudos e planos de gestão ambiental, como licenciamento ambiental, controle de emissões,
           gerenciamento de resíduos, entre outros.
         </p>
-        <a class="infobox-btn" href="#" aria-label="Saiba mais sobre Gestão Ambiental">Saiba mais</a>
+        <a class="cta" href="#" aria-label="Saiba mais sobre Gestão Ambiental">Saiba mais</a>
       </article>
 
-      <!-- 5) Perícia Médica e Trabalhista — icon: calendar -->
-      <article class="infobox">
-        <div class="infobox-photo">
-          <img src="assets/img/sierefire.png" alt="Perícia Médica e Trabalhista" width="512" height="512" loading="lazy">
+      <!-- 5) Perícia Médica e Trabalhista -->
+      <article class="card" data-aos="fade-up" data-aos-delay="60">
+        <div class="icon">
+          <img src="assets/img/sierefire.png" alt="Ícone Perícia Médica e Trabalhista" loading="lazy">
         </div>
-        <h3 class="infobox-title">Perícia Médica e Trabalhista</h3>
-        <p class="infobox-text">
+        <h3 class="title">Perícia Médica e Trabalhista</h3>
+        <p class="desc">
           Realizamos assistência à perícia médica e trabalhista na análise acompanhando todo o processo.
         </p>
-        <a class="infobox-btn" href="#" aria-label="Saiba mais sobre Perícia Médica e Trabalhista">Saiba mais</a>
+        <a class="cta" href="#" aria-label="Saiba mais sobre Perícia Médica e Trabalhista">Saiba mais</a>
       </article>
 
-      <!-- 6) E-Social — icon: esocial (adjust if your filename differs) -->
-      <article class="infobox">
-        <div class="infobox-photo">
-          <img src="assets/img/sierefire.png" alt="E-Social" width="512" height="512" loading="lazy">
+      <!-- 6) E-Social -->
+      <article class="card" data-aos="fade-up" data-aos-delay="120">
+        <div class="icon">
+          <img src="assets/img/sierefire.png" alt="Ícone E-Social" loading="lazy">
         </div>
-        <h3 class="infobox-title">E-Social</h3>
-        <p class="infobox-text">
+        <h3 class="title">E-Social</h3>
+        <p class="desc">
           Oferecemos gestão de envios dos eventos trabalhistas, trazendo mais conforto e segurança aos nossos clientes.
         </p>
-        <a class="infobox-btn" href="e-social.html" aria-label="Saiba mais sobre E-Social">Saiba mais</a>
+        <a class="cta" href="#" aria-label="Saiba mais sobre E-Social">Saiba mais</a>
       </article>
-
     </div>
+
+    <p class="foot" data-aos="fade-up" data-aos-delay="100">
+      Precisa de algo específico? Entre em contato — montamos um pacote sob medida.
+    </p>
   </div>
 </section>
+
 
 
 <!-- Hero -->
@@ -281,7 +356,7 @@
 </div>
 </div>
 </section>-->
-  <section class="section dark-cards">
+<!--   <section class="section dark-cards">
     <div class="container">
       <div class="section-header">
         <h2>Soluções em Destaque</h2>
@@ -356,7 +431,7 @@
       <div class="cta"><a class="btn" href="contato.html">Solicitar orçamento</a></div>
     </div>
   </section>
-<!-- Contato -->
+Contato -->
 <section class="section" id="contato">
 <div class="container split">
 <div>
@@ -409,5 +484,15 @@
 <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </footer>
 <script src="assets/js/main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 700,
+    easing: 'ease-out-quart',
+    once: true,
+    offset: 80
+  });
+</script>
+
 </body>
 </html>

@@ -1,4 +1,76 @@
 document.addEventListener('DOMContentLoaded', function(){
+  // Card reveal animations
+  function initCardReveals(root){
+    try{
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const scope = root || document;
+      const cards = Array.from(scope.querySelectorAll('.cards .card'));
+      if(cards.length === 0) return;
+      // If reduced motion, show immediately
+      if(prefersReduced || !('IntersectionObserver' in window)){
+        cards.forEach(c => c.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const el = entry.target;
+          if(entry.isIntersecting){
+            el.classList.add('is-visible');
+            // Stop observing once visible
+            io.unobserve(el);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+
+      // Helper to compute direction per card relative to container center
+      const containers = new Map();
+      function getContainer(el){
+        const wrap = el.closest('.cards');
+        if(!wrap) return null;
+        if(!containers.has(wrap)) containers.set(wrap, { el: wrap, rect: wrap.getBoundingClientRect(), centerX: wrap.getBoundingClientRect().left + wrap.getBoundingClientRect().width/2 });
+        return containers.get(wrap);
+      }
+      function assignDirection(card){
+        const c = getContainer(card);
+        if(!c) return 0;
+        const r = card.getBoundingClientRect();
+        const mid = r.left + r.width/2;
+        const dx = mid - c.centerX;
+        // Map to -1, 0, 1 with a small deadzone
+        const dead = Math.max(12, r.width * 0.05);
+        return (dx > dead) ? 1 : (dx < -dead ? -1 : 0);
+      }
+
+      // Assign reveal class, stagger, and direction
+      let i = 0;
+      cards.forEach(card => {
+        const hidden = card.hasAttribute('hidden') || (getComputedStyle(card).display === 'none');
+        if(hidden) return;
+        card.classList.add('reveal');
+        card.classList.remove('is-visible');
+        card.style.setProperty('--reveal-i', String(i++));
+        const dir = assignDirection(card);
+        card.style.setProperty('--reveal-dir', String(dir));
+        io.observe(card);
+      });
+
+      // On resize, refresh container metrics and directions for cards not yet visible
+      let resizeTimer;
+      function refreshDirections(){
+        containers.forEach((val, key) => { val.rect = key.getBoundingClientRect(); val.centerX = val.rect.left + val.rect.width/2; });
+        cards.forEach(card => {
+          if(card.classList.contains('is-visible')) return;
+          const dir = assignDirection(card);
+          card.style.setProperty('--reveal-dir', String(dir));
+        });
+      }
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(refreshDirections, 100);
+      }, { passive:true });
+    }catch(_){ /* no-op in very old browsers */ }
+  }
+
   // Mobile menu
   const btn = document.querySelector('[data-menu]');
   const nav = document.querySelector(btn?.dataset?.target || '#site-nav');
@@ -227,6 +299,45 @@ document.addEventListener('DOMContentLoaded', function(){
     window.addEventListener('hashchange', initFromHash);
     initFromHash();
   }
+  
+  // ===== Merged Áreas + Soluções toggle =====
+  const merged = document.getElementById('atuacao-solucoes');
+  if(merged){
+    const pills = Array.from(merged.querySelectorAll('.filters .pill'));
+    const viewAreas = merged.querySelector('.view-areas');
+    const viewSolucoes = merged.querySelector('.view-solucoes');
+    function show(view){
+      const isAreas = view === 'areas';
+      merged.dataset.view = isAreas ? 'areas' : 'solucoes';
+      viewAreas.toggleAttribute('hidden', !isAreas);
+      viewSolucoes.toggleAttribute('hidden', isAreas);
+      pills.forEach(p => {
+        const active = p.dataset.view === view;
+        p.classList.toggle('active', active);
+        p.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      // Re-init reveals for the now-visible view
+      initCardReveals(isAreas ? viewAreas : viewSolucoes);
+    }
+    merged.querySelector('.filters')?.addEventListener('click', (e) => {
+      const pill = e.target.closest?.('.pill');
+      if(!pill) return;
+      show(pill.dataset.view || 'areas');
+    });
+    merged.querySelector('.filters')?.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' '){
+        const pill = e.target.closest?.('.pill');
+        if(!pill) return;
+        e.preventDefault();
+        show(pill.dataset.view || 'areas');
+      }
+    });
+    // Init from hash (optional): #solucoes or #areas
+    const raw = (location.hash || '').replace('#','').toLowerCase();
+    show(raw === 'solucoes' ? 'solucoes' : 'areas');
+  }
+  // Initial reveals across the page (outside merged section as well)
+  initCardReveals();
 });
 
   // Arrow keys navigation

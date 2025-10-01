@@ -39,48 +39,45 @@
       </div>
     </div>
   </header>
-  <section class="page-hero">
-    <div class="container">
-      <h1>Contato</h1>
-      <p class="lead">Envie sua mensagem. Retornamos ainda hoje em horário comercial.</p>
+  <section class="page-hero" style="background: linear-gradient(90deg, #e0e7ef 0%, #f8fafc 100%); border-radius:18px; margin-top:24px; box-shadow:0 2px 16px 0 rgba(30,41,59,.07);">
+    <div class="container" style="padding:38px 0 24px 0; text-align:center;">
+      <h1 style="font-size:2.6rem; font-weight:800; color:#1e293b; margin-bottom:10px; letter-spacing:-.02em;">Fale com a HSE Franca</h1>
+      <p class="lead" style="font-size:1.18rem; color:#334155; margin-bottom:0;">Envie sua mensagem e nossa equipe retornará ainda hoje em horário comercial.</p>
     </div>
   </section>
   <section class="section">
     <div class="container">
-      <div class="split">
-        <div>
-          <h2>Fale conosco</h2>
-          <form class="form" id="contact-form">
-            <div class="grid-2">
-              <div><label>Nome</label><input name="name" placeholder="Seu nome completo" required="" type="text" />
+      <section class="section" style="padding-top:0;">
+        <div class="container">
+          <div class="split" style="gap:40px; align-items:flex-start;">
+            <div style="background:#fff; border-radius:16px; box-shadow:0 2px 16px 0 rgba(30,41,59,.07); padding:32px 28px; min-width:320px; max-width:480px; margin-bottom:24px;">
+              <h2 style="font-size:1.5rem; font-weight:700; color:#1e293b; margin-bottom:18px; letter-spacing:-.01em;">Formulário de Contato</h2>
+              <form class="form" id="contact-form">
+                <div class="grid-2" style="gap:18px;">
+                  <div><label style="font-weight:500; color:#334155;">Nome</label><input name="name" placeholder="Seu nome completo" required type="text" style="border-radius:8px; border:1px solid #e2e8f0; padding:10px;" /></div>
+                  <div><label style="font-weight:500; color:#334155;">E-mail</label><input name="email" placeholder="voce@empresa.com.br" required type="email" style="border-radius:8px; border:1px solid #e2e8f0; padding:10px;" /></div>
+                  <div><label style="font-weight:500; color:#334155;">Telefone</label><input name="phone" placeholder="(xx) xxxxx-xxxx" type="tel" style="border-radius:8px; border:1px solid #e2e8f0; padding:10px;" /></div>
+                  <div><label style="font-weight:500; color:#334155;">Empresa</label><input name="company" placeholder="Nome da empresa" type="text" style="border-radius:8px; border:1px solid #e2e8f0; padding:10px;" /></div>
+                  <div class="full"><label style="font-weight:500; color:#334155;">Mensagem</label><textarea name="message" placeholder="Como podemos ajudar?" required rows="5" style="border-radius:8px; border:1px solid #e2e8f0; padding:10px;"></textarea></div>
+                </div>
+                <div style="display:flex; gap:14px; align-items:center; margin-top:18px;">
+                  <button class="btn" type="submit" style="font-weight:600; font-size:1.08rem; padding:10px 28px; border-radius:8px;">Enviar</button>
+                  <span aria-live="polite" id="form-status" style="color:#64748b"></span>
+                </div>
+              </form>
+              <p class="muted" style="margin-top:16px; color:#64748b; font-size:0.98rem;">Ao enviar, você concorda com nossa política de privacidade.</p>
+            </div>
+            <div style="flex:1; min-width:260px;">
+              <div class="card" style="background:linear-gradient(90deg,#e0e7ef 0%,#f8fafc 100%); border-radius:16px; box-shadow:0 2px 16px 0 rgba(30,41,59,.07); padding:28px 24px;">
+                <h3 style="margin-top:0; font-size:1.18rem; font-weight:700; color:#1e293b; margin-bottom:18px;">Informações de Contato</h3>
+                <p style="margin-bottom:10px;"><strong style="color:#334155;">E-mail:</strong> comercial@hsefranca.com.br</p>
+                <p style="margin-bottom:10px;"><strong style="color:#334155;">Atendimento:</strong> Seg–Sex, 8h–18h</p>
+                <p style="margin-bottom:0;"><strong style="color:#334155;">Cidade:</strong> Vila Velha - ES</p>
               </div>
-              <div><label>E-mail</label><input name="email" placeholder="voce@empresa.com.br" required=""
-                  type="email" /></div>
-              <div><label>Telefone</label><input name="phone" placeholder="(xx) xxxxx-xxxx" type="tel" /></div>
-              <div><label>Empresa</label><input name="company" placeholder="Nome da empresa" type="text" /></div>
-              <div class="full"><label>Mensagem</label><textarea name="message" placeholder="Como podemos ajudar?"
-                  required="" rows="5"></textarea></div>
             </div>
-            <div style="display:flex; gap:10px; align-items:center;">
-              <button class="btn" type="submit">Enviar</button>
-              <span aria-live="polite" id="form-status" style="color:#64748b"></span>
-            </div>
-          </form>
-          <p class="muted" style="margin-top:12px">Ao enviar, você concorda com nossa política de privacidade.</p>
-        </div>
-        <div>
-          <div class="card">
-            <h3 style="margin-top:0">Informações</h3>
-            <p><strong>E-mail:</strong> comercial@hsefranca.com.br</p>
-            <p><strong>Atendimento:</strong> Seg–Sex, 8h–18h</p>
-            <p><strong>Cidade:</strong> Vila Velha - ES</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <footer class="footer">
-    <div class="container">
+      </section>
       <div class="grid">
         <a class="brand" href="#top">
           <img alt="HSE Franca logo" src="assets/img/logo.svg" /><span>HSE Franca</span>

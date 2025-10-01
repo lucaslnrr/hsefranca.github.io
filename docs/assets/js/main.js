@@ -103,11 +103,6 @@ document.addEventListener('DOMContentLoaded', function(){
       const nextBtn = document.createElement('button');
       nextBtn.className = 'ctrl next'; nextBtn.setAttribute('data-next',''); nextBtn.setAttribute('aria-label','Próximo slide'); nextBtn.textContent = '›';
       controls.append(prevBtn, dotsWrap, nextBtn);
-      // Add play/pause button
-      const playBtn = document.createElement('button');
-      playBtn.className = 'play'; playBtn.setAttribute('aria-label','Pausar reprodução automática'); playBtn.setAttribute('data-playing','true');
-      playBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 6h2v12h-2zM16 6h2v12h-2z" fill="#fff"/></svg>';
-      controls.appendChild(playBtn);
       carousel.appendChild(controls);
     }
 
@@ -139,6 +134,22 @@ document.addEventListener('DOMContentLoaded', function(){
       });
     })();
 
+    function setDir(dir){
+      const isNext = dir === 'next';
+      const isPrev = dir === 'prev';
+      carousel.classList.toggle('is-next', isNext);
+      carousel.classList.toggle('is-prev', isPrev);
+    }
+
+    function applyTheme(){
+      try{
+        const active = slides[i];
+        if(!active) return;
+        const isLight = active.classList.contains('light');
+        carousel.setAttribute('data-theme', isLight ? 'light' : 'dark');
+      }catch(_){ }
+    }
+
     function go(n){
       i = (n + slides.length) % slides.length;
       slides.forEach((s, idx) => {
@@ -146,6 +157,7 @@ document.addEventListener('DOMContentLoaded', function(){
         s.classList.toggle('active', active);
         s.setAttribute('aria-hidden', active ? 'false' : 'true');
       });
+      applyTheme();
       dots.forEach((d, idx) => {
         const active = idx === i;
         d.classList.toggle('active', active);
@@ -154,12 +166,12 @@ document.addEventListener('DOMContentLoaded', function(){
       restart();
     }
 
-    function next(){ go(i + 1); }
-    function prev(){ go(i - 1); }
+    function next(){ setDir('next'); go(i + 1); }
+    function prev(){ setDir('prev'); go(i - 1); }
 
     function restart(){
       if(timer) clearInterval(timer);
-      if(INTERVAL > 0 && isPlaying()){
+      if(INTERVAL > 0){
         timer = setInterval(next, INTERVAL);
       }
     }
@@ -168,22 +180,14 @@ document.addEventListener('DOMContentLoaded', function(){
     const prevEl = controls.querySelector('[data-prev]');
     if(prevEl) prevEl.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     if(nextEl) nextEl.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-    let playEl = controls.querySelector('.play');
-    if(!playEl){
-      playEl = document.createElement('button');
-      playEl.className = 'play'; playEl.setAttribute('aria-label','Pausar reprodução automática'); playEl.setAttribute('data-playing','true');
-      playEl.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 6h2v12h-2zM16 6h2v12h-2z" fill="#fff"/></svg>';
-      controls.appendChild(playEl);
-    }
     nextEl?.addEventListener('click', next);
     prevEl?.addEventListener('click', prev);
-    function isPlaying(){ return (playEl?.getAttribute('data-playing') !== 'false'); }
-    function pause(){ if(timer) clearInterval(timer); playEl?.setAttribute('data-playing','false'); playEl?.setAttribute('aria-label','Reproduzir automaticamente'); if(playEl){ playEl.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 5v14l11-7-11-7z" fill="#fff"/></svg>'; } }
-    function play(){ playEl?.setAttribute('data-playing','true'); playEl?.setAttribute('aria-label','Pausar reprodução automática'); if(playEl){ playEl.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 6h2v12h-2zM16 6h2v12h-2z" fill="#fff"/></svg>'; } restart(); }
-    playEl?.addEventListener('click', () => { isPlaying() ? pause() : play(); });
     dots.forEach(d => d.addEventListener('click', (e) => {
       const n = parseInt(e.currentTarget.getAttribute('data-go'), 10);
-      if (!Number.isNaN(n)) go(n);
+      if (Number.isNaN(n) || n === i) return;
+      const diff = (n - i + slides.length) % slides.length;
+      setDir(diff === 0 ? 'next' : (diff <= slides.length/2 ? 'next' : 'prev'));
+      go(n);
     }));
 
     // Pause on hover (desktop)
@@ -240,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // Init
     go(0);
-    if(prefersReduced){ pause(); }
+    applyTheme();
   }
 
   // ===== Services filters (Serviços page) =====

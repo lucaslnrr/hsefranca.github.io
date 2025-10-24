@@ -8,30 +8,23 @@ export default function page() {
       <section className="">
         <div className="max-w-2xl mx-auto lg:mx-0 lg:max-w-none">
           <h2 className="scroll-m-20 font-semibold tracking-tight text-5xl capitalize">
-            Our mission
+            Nossa missão
           </h2>
           <div className="flex flex-col mt-6 gap-x-8 gap-y-20 lg:flex-row">
             <div className="lg:w-full lg:max-w-3xl text-balance lg:flex-auto space-y-8">
               <p className="text-xl">
-                Aliquet nec orci mattis amet quisque ullamcorper neque, nibh
-                sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque
-                id at vitae feugiat egestas ac. Diam nulla orci at in viverra
-                scelerisque eget. Eleifend egestas fringilla sapien.
+                Promover ambientes de trabalho mais seguros, saudáveis e
+                produtivos, por meio de soluções completas em Segurança do
+                Trabalho (SST), perícia e treinamentos.
               </p>
               <p className="text-foreground/70">
-                Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget
-                risus enim. Mattis mauris semper sed amet vitae sed turpis id.
-                Id dolor praesent donec est. Odio penatibus risus viverra tellus
-                varius sit neque erat velit. Faucibus commodo massa rhoncus,
-                volutpat. Dignissim sed eget risus enim. Mattis mauris semper
-                sed amet vitae sed turpis id.
+                Atuamos com proximidade ao cliente, entendimento do negócio e
+                aplicação prática das NRs, unindo prevenção, conformidade e
+                melhoria contínua.
               </p>
               <p className="text-foreground/70">
-                Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis
-                odio id et. Id blandit molestie auctor fermentum dignissim.
-                Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate
-                et ultrices hac adipiscing egestas. Iaculis convallis ac tempor
-                et ut. Ac lorem vel integer orci.
+                Nossa equipe reúne experiência técnica e didática para
+                transformar requisitos legais em rotinas simples e eficientes.
               </p>
             </div>
           </div>
@@ -43,9 +36,9 @@ export default function page() {
       <section className="aspect-[5/2] w-full relative">
         <Image
           fill
-          quality={50}
-          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-          alt=""
+          quality={70}
+          src="/media/4.png"
+          alt="Equipe da HSE Franca em atividade de campo"
           className="object-cover object-center "
         />
       </section>
@@ -55,11 +48,11 @@ export default function page() {
       <section className="">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="scroll-m-20 text-4xl font-semibold tracking-tight capitalize first:pt-0 text-foreground">
-            Our values
+            Nossos valores
           </h2>
           <p className="mt-2 text-foreground text-base/6">
-            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam
-            voluptatum cupiditate veritatis in accusamus quisquam.
+            Ética, transparência, responsabilidade e foco em resultados para a
+            segurança das pessoas e sustentabilidade do negócio.
           </p>
         </div>
         <dl className="grid max-w-2xl grid-cols-1 mx-auto mt-16 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
@@ -97,8 +90,8 @@ export default function page() {
                     <Image
                       fill
                       className="rounded-full "
-                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
+                      src="/media/5.png"
+                      alt="Cliente da HSE Franca"
                     />
                   </div>
                   <div className="text-base/6">
@@ -123,8 +116,8 @@ export default function page() {
                     <Image
                       fill
                       className="rounded-full bg-gray-50"
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
+                      src="/media/6.png"
+                      alt="Cliente da HSE Franca"
                     />
                   </div>
                   <div className="text-base/6">

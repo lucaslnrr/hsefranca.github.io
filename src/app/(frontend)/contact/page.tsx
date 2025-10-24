@@ -7,19 +7,30 @@ export default function Contact() {
   return (
     <>
       <main className="container p-4 mx-auto my-16 space-y-16">
+        {/* Contact Info */}
+        <section className="rounded-lg bg-primary/10 p-4 sm:p-6">
+          <p className="text-sm text-foreground/80">HSE Franca</p>
+          <h2 className="text-xl font-semibold">Entre em contato</h2>
+          <ul className="mt-2 text-sm">
+            <li>
+              Telefone: <a className="underline" href="tel:5527995186540">(27) 99518-6540</a>
+            </li>
+            <li>
+              E-mail: <a className="underline" href="mailto:comercial@hsefranca.com">comercial@hsefranca.com</a>
+            </li>
+          </ul>
+        </section>
         {/* Support Center Section */}
         <section>
           <div className="max-w-2xl mx-auto lg:mx-0 space-y-2">
             <p className="text-base font-semibold leading-7 text-primary capitalize">
-              Get the help you need
+              Fale com a HSE Franca
             </p>
             <h1 className="scroll-m-20 text-5xl font-bold tracking-tight capitalize">
-              Support center
+              Suporte e contato
             </h1>
             <p className="text-lg max-w-[120ch] text-balance">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-              lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-              fugiat aliqua.
+              Envie sua mensagem para orçamentos, dúvidas ou agendar uma visita técnica.
             </p>
           </div>
         </section>
@@ -34,7 +45,7 @@ export default function Contact() {
                   htmlFor="first-name"
                   className="text-sm font-semibold capitalize"
                 >
-                  First name
+                  Nome
                 </Label>
                 <div className="mt-2.5">
                   <Input
@@ -53,7 +64,7 @@ export default function Contact() {
                   htmlFor="last-name"
                   className="text-sm font-semibold capitalize"
                 >
-                  Last name
+                  Sobrenome
                 </Label>
                 <div className="mt-2.5">
                   <Input
@@ -72,7 +83,7 @@ export default function Contact() {
                   htmlFor="company"
                   className="text-sm font-semibold capitalize"
                 >
-                  Company
+                  Empresa
                 </Label>
                 <div className="mt-2.5">
                   <Input
@@ -91,7 +102,7 @@ export default function Contact() {
                   htmlFor="email"
                   className="text-sm font-semibold capitalize"
                 >
-                  Email
+                  E-mail
                 </Label>
                 <div className="mt-2.5">
                   <Input
@@ -106,27 +117,13 @@ export default function Contact() {
 
               {/* Phone Number */}
               <div className="sm:col-span-2">
-                <label
+                <Label
                   htmlFor="phone-number"
                   className="text-sm font-semibold capitalize"
                 >
-                  Phone number
-                </label>
-                <div className="relative mt-2.5">
-                  <div className="absolute inset-y-0 left-0 flex items-center">
-                    <label htmlFor="country" className="sr-only">
-                      Country
-                    </label>
-                    <select
-                      id="country"
-                      name="country"
-                      className="h-full py-0 pl-4 text-gray-400 bg-transparent border-0 rounded-md dark:bg-primary-950 bg-none pr-9 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
-                    >
-                      <option>US</option>
-                      <option>CA</option>
-                      <option>EU</option>
-                    </select>
-                  </div>
+                  Telefone
+                </Label>
+                <div className="mt-2.5">
                   <Input
                     type="tel"
                     name="phone-number"
@@ -139,17 +136,17 @@ export default function Contact() {
 
               {/* Message */}
               <div className="sm:col-span-2">
-                <label
+                <Label
                   htmlFor="message"
                   className="text-sm font-semibold capitalize"
                 >
-                  Message
-                </label>
+                  Mensagem
+                </Label>
                 <div className="mt-2.5">
                   <Textarea
                     name="message"
                     id="message"
-                    placeholder="Type your message here"
+                    placeholder="Digite sua mensagem"
                     className="shadow-none border-foreground/65"
                     rows={4}
                     defaultValue={""}
@@ -193,8 +190,8 @@ export default function Contact() {
 
             {/* Submit Button */}
             <div className="mt-10">
-              <Button type="submit" className="w-32">
-                Let&#39;s talk
+              <Button type="submit" className="w-40">
+                Enviar mensagem
               </Button>
             </div>
           </form>
@@ -204,48 +201,46 @@ export default function Contact() {
         <section>
           <div className="max-w-2xl mx-auto lg:mx-0">
             <h2 className="scroll-m-20 pb-2 text-3xl font-bold tracking-tight first:mt-0 capitalize">
-              Our offices
+              Onde estamos
             </h2>
             <p className="mt-3 body-large">
-              Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate
-              id malesuada non. Cras aliquet purus dui laoreet diam sed lacus,
-              fames.
+              Atendemos empresas em todo o Brasil com soluções presenciais e remotas.
             </p>
           </div>
           <div className="grid max-w-2xl grid-cols-1 gap-8 mx-auto mt-16 text-base leading-7 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4">
             {/* Los Angeles */}
             <div>
-              <h3 className="pl-6 font-semibold">Los Angeles</h3>
+              <h3 className="pl-6 font-semibold">Franca - SP</h3>
               <address className="pt-2 pl-6 not-italic border-l border-primary/50">
-                <p>4556 Brendan Ferry</p>
-                <p>Los Angeles, CA 90210</p>
+                <p>Atendimento regional e remoto</p>
+                <p>Brasil</p>
               </address>
             </div>
 
             {/* New York */}
             <div>
-              <h3 className="pl-6 font-semibold">New York</h3>
+              <h3 className="pl-6 font-semibold">Vitória - ES</h3>
               <address className="pt-2 pl-6 not-italic border-l border-primary/50">
-                <p>886 Walter Street</p>
-                <p>New York, NY 12345</p>
+                <p>Atendimento remoto</p>
+                <p>Brasil</p>
               </address>
             </div>
 
             {/* Toronto */}
             <div>
-              <h3 className="pl-6 font-semibold">Toronto</h3>
+              <h3 className="pl-6 font-semibold">Belo Horizonte - MG</h3>
               <address className="pt-2 pl-6 not-italic border-l border-primary/50">
-                <p>7363 Cynthia Pass</p>
-                <p>Toronto, ON N3Y 4H8</p>
+                <p>Atendimento remoto</p>
+                <p>Brasil</p>
               </address>
             </div>
 
             {/* London */}
             <div>
-              <h3 className="pl-6 font-semibold">London</h3>
+              <h3 className="pl-6 font-semibold">São Paulo - SP</h3>
               <address className="pt-2 pl-6 not-italic border-l border-primary/50">
-                <p>114 Cobble Lane</p>
-                <p>London N1 2EF</p>
+                <p>Atendimento remoto</p>
+                <p>Brasil</p>
               </address>
             </div>
           </div>

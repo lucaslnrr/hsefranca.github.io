@@ -29,7 +29,7 @@ export default function ProgramsList() {
             <div className="w-full h-64 relative overflow-hidden">
               <Image
                 fill
-                src="/media/hero-image.webp"
+                src={`/media/${(data.id % 12) + 1}.png`}
                 alt={data.title}
                 className="object-cover rounded-t-xl group-hover:contrast-125"
                 priority={data.id === 1} // Only prioritize first image for performance

@@ -4,12 +4,10 @@ interface NavigationTopLinks {
 }
 
 const NavigationTopLinks: NavigationTopLinks[] = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Programs", href: "/programs" },
-  { name: "Events", href: "/events" },
-  { name: "Questions", href: "/questions" }, // More semantic than "questions"
-  { name: "Contact", href: "/contact" },
+  { name: "Início", href: "/" },
+  { name: "Sobre", href: "/about" },
+  { name: "Serviços", href: "/servicos" },
+  { name: "Contato", href: "/contact" },
 ];
 
 const CompanyValues = [
@@ -109,27 +107,27 @@ const events = new Array(6).fill({
 
 const NavigationBottomLinks = {
   solutions: [
-    { name: "Marketing", href: "#" },
-    { name: "Analytics", href: "#" },
-    { name: "Automation", href: "#" },
-    { name: "Commerce", href: "#" },
-    { name: "Insights", href: "#" },
+    { name: "SST e PGR", href: "#" },
+    { name: "Laudos e LTCAT", href: "#" },
+    { name: "Perícia", href: "/pericia" },
+    { name: "Treinamentos NR", href: "/events" },
+    { name: "Consultoria", href: "/programs" },
   ],
   support: [
-    { name: "Submit ticket", href: "#" },
-    { name: "Documentation", href: "#" },
-    { name: "Guides", href: "#" },
+    { name: "Fale conosco", href: "/contact" },
+    { name: "Dúvidas frequentes", href: "/questions" },
+    { name: "Materiais", href: "#" },
   ],
   company: [
-    { name: "About", href: "#" },
+    { name: "Sobre", href: "/about" },
     { name: "Blog", href: "#" },
-    { name: "Jobs", href: "#" },
-    { name: "Press", href: "#" },
+    { name: "Carreiras", href: "#" },
+    { name: "Imprensa", href: "#" },
   ],
   legal: [
-    { name: "Terms of service", href: "#" },
-    { name: "Privacy policy", href: "#" },
-    { name: "License", href: "#" },
+    { name: "Termos de uso", href: "#" },
+    { name: "Política de privacidade", href: "#" },
+    { name: "Licenças", href: "#" },
   ],
   social: [
     {

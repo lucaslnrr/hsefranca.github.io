@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { NavigationBottomLinks } from "@/lib/data";
-import CompanyLogo from "./CompanyLogo";
+import Image from "next/image";
 
 export default function NavigationBottom() {
   return (
@@ -12,12 +12,12 @@ export default function NavigationBottom() {
             <div className="space-y-8">
               {/* Logo */}
               <Link href="/" className="-m-1.5 p-1.5">
-                <span className="sr-only">Believe Support Services</span>
-                <CompanyLogo fill={`fill-foreground`} />
+                <span className="sr-only">HSE Franca</span>
+                <Image src="/media/logo.png" alt="HSE Franca" width={150} height={30} />
               </Link>
               <p className="text-sm/6 text-balance text-foreground">
-                Making the world a better place through constructing elegant
-                hierarchies.
+                Soluções em Segurança do Trabalho (SST), Perícia e Treinamentos
+                para sua empresa.
               </p>
               <div className="flex gap-x-6">
                 {NavigationBottomLinks.social.map((item) => (
@@ -36,7 +36,7 @@ export default function NavigationBottom() {
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
                   <h3 className="text-sm/6 leading-none font-semibold">
-                    Solutions
+                    Soluções
                   </h3>
                   <ul role="list" className="mt-6 space-y-4">
                     {NavigationBottomLinks.solutions.map((item) => (
@@ -53,7 +53,7 @@ export default function NavigationBottom() {
                 </div>
                 <div className="mt-10 md:mt-0">
                   <h3 className="text-sm/6 leading-none font-semibold">
-                    Support
+                    Suporte
                   </h3>
                   <ul role="list" className="mt-6 space-y-4">
                     {NavigationBottomLinks.support.map((item) => (
@@ -72,7 +72,7 @@ export default function NavigationBottom() {
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
                   <h3 className="text-sm/6 leading-none font-semibold">
-                    Company
+                    Empresa
                   </h3>
                   <ul role="list" className="mt-6 space-y-4">
                     {NavigationBottomLinks.company.map((item) => (
@@ -109,8 +109,8 @@ export default function NavigationBottom() {
           </div>
           <div className="mt-16 border-t border-foreground/10 pt-8 sm:mt-20 lg:mt-24">
             <p className="text-sm/6 text-foreground">
-              &copy; {new Date().getFullYear()} Believe Support Services, Inc.
-              All rights reserved.
+              &copy; {new Date().getFullYear()} HSE Franca. Todos os direitos
+              reservados.
             </p>
           </div>
         </CardContent>

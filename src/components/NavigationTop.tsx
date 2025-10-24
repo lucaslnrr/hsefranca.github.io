@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { NavigationTopLinks } from "@/lib/data";
-import CompanyLogo from "./CompanyLogo";
+import Image from "next/image";
 
 export default function NavigationTop() {
   return (
@@ -12,8 +12,8 @@ export default function NavigationTop() {
           <nav className="flex flex-col items-start gap-4 py-3 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
             {/* Logo */}
             <Link href="/" className="-m-1.5 p-1.5">
-              <span className="sr-only">Believe Support Services</span>
-              <CompanyLogo fill={`fill-foreground`} />
+              <span className="sr-only">HSE Franca</span>
+              <Image src="/media/logo.png" alt="HSE Franca" width={150} height={30} />
             </Link>
 
             {/* Navigation Links */}

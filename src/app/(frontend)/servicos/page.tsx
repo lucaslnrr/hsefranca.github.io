@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { basePath } from "@/lib/basePath";
 
 type Servico = {
   id: number;
@@ -68,7 +69,7 @@ export default function ServicosPage() {
               <div className="w-full h-48 relative">
                 <Image
                   fill
-                  src={`/media/${s.id + 1}.png`}
+                  src={`${basePath}/media/${s.id + 1}.png`}
                   alt={s.titulo}
                   className="object-cover object-top rounded-xl"
                 />

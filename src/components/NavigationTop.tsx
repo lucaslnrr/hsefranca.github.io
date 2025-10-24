@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { NavigationTopLinks } from "@/lib/data";
 import Image from "next/image";
+import { basePath } from "@/lib/basePath";
 
 export default function NavigationTop() {
   return (
@@ -13,7 +14,7 @@ export default function NavigationTop() {
             {/* Logo */}
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">HSE Franca</span>
-              <Image src="/media/logo.png" alt="HSE Franca" width={150} height={30} />
+              <Image src={`${basePath}/media/logo.png`} alt="HSE Franca" width={150} height={30} />
             </Link>
 
             {/* Navigation Links */}

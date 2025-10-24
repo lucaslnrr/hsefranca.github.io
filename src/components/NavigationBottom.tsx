@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { NavigationBottomLinks } from "@/lib/data";
 import Image from "next/image";
+import { basePath } from "@/lib/basePath";
 
 export default function NavigationBottom() {
   return (
@@ -13,7 +14,7 @@ export default function NavigationBottom() {
               {/* Logo */}
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">HSE Franca</span>
-                <Image src="/media/logo.png" alt="HSE Franca" width={150} height={30} />
+                <Image src={`${basePath}/media/logo.png`} alt="HSE Franca" width={150} height={30} />
               </Link>
               <p className="text-sm/6 text-balance text-foreground">
                 Soluções em Segurança do Trabalho (SST), Perícia e Treinamentos

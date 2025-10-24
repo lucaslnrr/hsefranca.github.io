@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { CompanyValues } from "@/lib/data";
+import { basePath } from "@/lib/basePath";
 
 export default function page() {
   return (
@@ -37,7 +38,7 @@ export default function page() {
         <Image
           fill
           quality={70}
-          src="/media/4.png"
+          src={`${basePath}/media/4.png`}
           alt="Equipe da HSE Franca em atividade de campo"
           className="object-cover object-center "
         />
@@ -90,7 +91,7 @@ export default function page() {
                     <Image
                       fill
                       className="rounded-full "
-                      src="/media/5.png"
+                      src={`${basePath}/media/5.png`}
                       alt="Cliente da HSE Franca"
                     />
                   </div>
@@ -116,7 +117,7 @@ export default function page() {
                     <Image
                       fill
                       className="rounded-full bg-gray-50"
-                      src="/media/6.png"
+                      src={`${basePath}/media/6.png`}
                       alt="Cliente da HSE Franca"
                     />
                   </div>

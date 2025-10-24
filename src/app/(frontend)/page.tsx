@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
+import { basePath } from "@/lib/basePath";
 import { Input } from "@/components/ui/input";
 
 export default function page() {
@@ -42,14 +43,14 @@ export default function page() {
                 <Link href="/contact">Fale conosco</Link>
               </Button>
               <Button variant="secondary" className="shadow-none" asChild>
-                <Link href="/programs">Nossos serviços</Link>
+                <Link href="/servicos">Nossos serviços</Link>
               </Button>
             </div>
           </div>
           <div className="relative w-full aspect-square lg:aspect-video bg-neutral-300 rounded-lg overflow-hidden">
             <Image
               fill
-              src="/media/1.png"
+              src={`${basePath}/media/1.png`}
               alt="Equipe de Segurança do Trabalho da HSE Franca"
               className="object-cover object-center rounded-xl"
             />
@@ -124,14 +125,14 @@ export default function page() {
               Implementamos práticas de SST alinhadas às NRs, com foco em prevenção,
               melhoria contínua e segurança operacional, apoiando pessoas e o negócio.
             </p>
-            <Button variant="link" className="pl-0">
-              Conheça nossos serviços &rarr;
+            <Button variant="link" className="pl-0" asChild>
+              <Link href="/servicos">Conheça nossos serviços &rarr;</Link>
             </Button>
           </div>
           <div className="relative w-full aspect-[16/10] rounded bg-foreground/30 rounded-lg">
             <Image
               fill
-              src="/media/2.png"
+              src={`${basePath}/media/2.png`}
               alt="Ilustração de segurança do trabalho"
               className="object-cover object-center rounded-xl"
             />
@@ -144,14 +145,14 @@ export default function page() {
               Capacitações com conteúdo aplicável, exercícios e simulações para fixação,
               garantindo equipes mais preparadas e ambientes mais seguros.
             </p>
-            <Button variant="link" className="pl-0">
-              Ver treinamentos &rarr;
+            <Button variant="link" className="pl-0" asChild>
+              <Link href="/servicos">Ver treinamentos &rarr;</Link>
             </Button>
           </div>
           <div className="relative w-full aspect-[16/10] rounded bg-foreground/30 rounded-lg">
             <Image
               fill
-              src="/media/3.png"
+              src={`${basePath}/media/3.png`}
               alt="Equipe em treinamento de segurança"
               className="object-cover object-center rounded-xl"
             />

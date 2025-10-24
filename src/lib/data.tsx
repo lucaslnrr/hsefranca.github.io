@@ -107,15 +107,15 @@ const events = new Array(6).fill({
 
 const NavigationBottomLinks = {
   solutions: [
-    { name: "SST e PGR", href: "#" },
-    { name: "Laudos e LTCAT", href: "#" },
-    { name: "Perícia", href: "/pericia" },
-    { name: "Treinamentos NR", href: "/events" },
-    { name: "Consultoria", href: "/programs" },
+    { name: "SST e PGR", href: "/servicos" },
+    { name: "Laudos e LTCAT", href: "/servicos" },
+    { name: "Perícia", href: "/servicos" },
+    { name: "Treinamentos NR", href: "/servicos" },
+    { name: "Consultoria", href: "/servicos" },
   ],
   support: [
     { name: "Fale conosco", href: "/contact" },
-    { name: "Dúvidas frequentes", href: "/questions" },
+    { name: "Dúvidas frequentes", href: "/contact" },
     { name: "Materiais", href: "#" },
   ],
   company: [

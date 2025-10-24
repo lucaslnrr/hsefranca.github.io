@@ -16,11 +16,11 @@ export default function page() {
   return (
     <>
       <main className="container mx-auto min-h-dvh my-24 space-y-32">
-        <section className="lg:text-balance lg:text-center space-y-12">
+        <section className="relative lg:text-balance lg:text-center space-y-12 overflow-hidden rounded-2xl bg-gradient-to-b from-primary/10 via-primary/5 to-transparent p-6 sm:p-10">
           <div className="space-y-4">
             <Button
               variant="outline"
-              className="shadow-none rounded-full border-foreground/20"
+              className="shadow-md rounded-full border-primary/30"
             >
               <Link href="/#treinamentos" className="relative">
                 Próximos treinamentos na HSE Franca &nbsp;
@@ -39,15 +39,15 @@ export default function page() {
               laudos, consultoria e treinamentos para conformidade e prevenção.
             </p>
             <div className="space-x-4">
-              <Button asChild>
+              <Button className="shadow-md" asChild>
                 <Link href="/contact">Fale conosco</Link>
               </Button>
-              <Button variant="secondary" className="shadow-none" asChild>
+              <Button variant="secondary" className="shadow-md" asChild>
                 <Link href="/servicos">Nossos serviços</Link>
               </Button>
             </div>
           </div>
-          <div className="relative w-full aspect-square lg:aspect-video bg-neutral-300 rounded-lg overflow-hidden">
+          <div className="relative w-full aspect-square lg:aspect-video rounded-lg overflow-hidden shadow-2xl ring-1 ring-primary/10 bg-gradient-to-tr from-primary/20 to-transparent">
             <Image
               fill
               src={`${basePath}/media/1.png`}
@@ -56,7 +56,7 @@ export default function page() {
             />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <Card className="rounded-lg overflow-hidden shadow-none">
+            <Card className="rounded-lg overflow-hidden shadow-lg border border-primary/10 bg-gradient-to-b from-background to-primary/5">
               <CardContent className="space-y-3 text-start">
                 <CardTitle>SST e PGR</CardTitle>
                 <CardDescription>
@@ -69,7 +69,7 @@ export default function page() {
                 </CardAction>
               </CardContent>
             </Card>
-            <Card className="rounded-lg overflow-hidden shadow-none">
+            <Card className="rounded-lg overflow-hidden shadow-lg border border-primary/10 bg-gradient-to-b from-background to-primary/5">
               <CardContent className="space-y-3 text-start">
                 <CardTitle>Perícia</CardTitle>
                 <CardDescription>
@@ -82,7 +82,7 @@ export default function page() {
                 </CardAction>
               </CardContent>
             </Card>
-            <Card className="rounded-lg overflow-hidden shadow-none">
+            <Card className="rounded-lg overflow-hidden shadow-lg border border-primary/10 bg-gradient-to-b from-background to-primary/5">
               <CardContent className="space-y-3 text-start">
                 <CardTitle>Treinamentos NR</CardTitle>
                 <CardDescription>
@@ -98,7 +98,7 @@ export default function page() {
         </section>
         {/* <...> End Of Hero Section <...> */}
         <section className="">
-          <Card className="bg-primary/20 dark:bg-card text-center border-none shadow-none">
+          <Card className="text-center border-none shadow-xl bg-gradient-to-br from-primary/15 via-primary/5 to-transparent">
             <CardContent className="space-y-4 relative px-6 py-24 overflow-hidden bg-theme isolate sm:rounded-3xl sm:px-24 xl:py-32">
               <h2 className="max-w-2xl mx-auto scroll-m-20 text-3xl font-extrabold capitalize text-center tracking-normal ">
                 Receba novidades e datas de treinamentos.
@@ -108,7 +108,7 @@ export default function page() {
                 <Input
                   type="email"
                   placeholder="Email"
-                  className="border-foreground/20 shadow-none"
+                  className="border-primary/30 shadow-sm"
                 />
                 <Button type="submit">Inscrever</Button>
               </div>
@@ -129,7 +129,7 @@ export default function page() {
               <Link href="/servicos">Conheça nossos serviços &rarr;</Link>
             </Button>
           </div>
-          <div className="relative w-full aspect-[16/10] rounded bg-foreground/30 rounded-lg">
+          <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden shadow-xl ring-1 ring-primary/10 bg-gradient-to-tr from-primary/20 to-transparent">
             <Image
               fill
               src={`${basePath}/media/2.png`}
@@ -149,7 +149,7 @@ export default function page() {
               <Link href="/servicos">Ver treinamentos &rarr;</Link>
             </Button>
           </div>
-          <div className="relative w-full aspect-[16/10] rounded bg-foreground/30 rounded-lg">
+          <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden shadow-xl ring-1 ring-primary/10 bg-gradient-to-tr from-primary/20 to-transparent">
             <Image
               fill
               src={`${basePath}/media/3.png`}
@@ -160,17 +160,17 @@ export default function page() {
         </section>
         {/* <...> End Of Call TO Action Section <...> */}
         <section className="">
-          <Card className="bg-primary/20 dark:bg-card text-center border-none shadow-none">
+          <Card className="text-center border-none shadow-xl bg-gradient-to-br from-primary/15 via-primary/5 to-transparent">
             <CardContent className="space-y-4 relative px-6 py-24 overflow-hidden bg-theme isolate sm:rounded-3xl sm:px-24 xl:py-32">
               <h2 className="max-w-2xl mx-auto scroll-m-20 text-3xl font-extrabold capitalize text-center tracking-normal ">
                 Pronto para elevar a segurança do seu negócio?
               </h2>
               <p className="">Fale com a HSE Franca: (27) 99518-6540 • comercial@hsefranca.com</p>
               <div className="flex items-center justify-center gap-4">
-                <Button className="shadow-none" asChild>
+                <Button className="shadow-md" asChild>
                   <Link href="tel:5527995186540">Ligar agora</Link>
                 </Button>
-                <Button variant="secondary" className="shadow-none" asChild>
+                <Button variant="secondary" className="shadow-md" asChild>
                   <Link href="mailto:comercial@hsefranca.com">Enviar e-mail</Link>
                 </Button>
               </div>
@@ -182,3 +182,8 @@ export default function page() {
     </>
   );
 }
+
+
+
+
+

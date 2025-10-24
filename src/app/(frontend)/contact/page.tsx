@@ -18,6 +18,9 @@ export default function Contact() {
             <li>
               E-mail: <a className="underline" href="mailto:comercial@hsefranca.com">comercial@hsefranca.com</a>
             </li>
+            <li>
+              Endereço: Vila Velha - ES
+            </li>
           </ul>
         </section>
         {/* Support Center Section */}

@@ -11,11 +11,45 @@ import {
 import Image from "next/image";
 import { basePath } from "@/lib/basePath";
 import { Input } from "@/components/ui/input";
+import BannerCarousel from "@/components/BannerCarousel";
 
 export default function page() {
   return (
     <>
       <main className="container mx-auto min-h-dvh my-24 space-y-32">
+        <section>
+          <BannerCarousel
+            slides={[
+              {
+                image: `${basePath}/media/1.png`,
+                title: "Segurança do Trabalho e Conformidade",
+                description:
+                  "Programas legais, PGR, laudos e consultoria para reduzir riscos e garantir resultados.",
+                ctaText: "Fale conosco",
+                ctaHref: "/contact",
+                align: "left",
+              },
+              {
+                image: `${basePath}/media/2.png`,
+                title: "Treinamentos NR sob medida",
+                description:
+                  "Capacitações práticas e aplicáveis à realidade da sua operação.",
+                ctaText: "Ver treinamentos",
+                ctaHref: "/servicos",
+                align: "center",
+              },
+              {
+                image: `${basePath}/media/3.png`,
+                title: "Assistência em Perícia",
+                description:
+                  "Análises técnicas, laudos e suporte completo em perícias judiciais.",
+                ctaText: "Saiba mais",
+                ctaHref: "/pericia",
+                align: "right",
+              },
+            ]}
+          />
+        </section>
         <section className="relative lg:text-balance lg:text-center space-y-12 overflow-hidden rounded-2xl bg-gradient-to-b from-primary/10 via-primary/5 to-transparent p-6 sm:p-10">
           <div className="space-y-4">
             <Button

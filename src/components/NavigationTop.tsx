@@ -14,7 +14,13 @@ export default function NavigationTop() {
             {/* Logo */}
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">HSE Franca</span>
-              <Image src={`${basePath}/media/logo.png`} alt="HSE Franca" width={150} height={30} />
+              <Image
+                src={`${basePath}/media/logo.png`}
+                alt="HSE Franca"
+                width={150}
+                height={30}
+                className="h-6 w-auto"
+              />
             </Link>
 
             {/* Navigation Links */}

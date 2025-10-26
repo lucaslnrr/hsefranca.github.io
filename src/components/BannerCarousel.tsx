@@ -47,7 +47,7 @@ export default function BannerCarousel({
         style={{ transform: `translateX(-${index * 100}%)`, width: `${count * 100}%` }}
       >
         {slides.map((s, i) => (
-          <div key={i} className="relative h-full w-full shrink-0">
+          <div key={i} className="relative h-full min-w-full shrink-0">
             <Image
               src={s.image}
               alt={s.title}
@@ -58,7 +58,7 @@ export default function BannerCarousel({
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
             <div
               className={
-                "absolute inset-0 flex items-end p-6 sm:p-10" +
+                "absolute inset-0 z-10 flex items-end p-6 sm:p-10" +
                 (s.align === "center"
                   ? " justify-center text-center"
                   : s.align === "right"
@@ -66,7 +66,7 @@ export default function BannerCarousel({
                   : " justify-start text-left")
               }
             >
-              <div className="max-w-2xl space-y-4 text-white">
+              <div className="max-w-2xl space-y-4 text-white drop-shadow">
                 <h2 className="text-3xl sm:text-5xl font-bold tracking-tight">
                   {s.title}
                 </h2>
@@ -125,4 +125,3 @@ export default function BannerCarousel({
     </div>
   );
 }
-

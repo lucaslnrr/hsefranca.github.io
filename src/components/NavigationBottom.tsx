@@ -8,7 +8,7 @@ export default function NavigationBottom() {
   return (
     <footer>
       <Card className="bg-primary/20 dark:bg-card rounded-b-none shadow-none border-none">
-        <CardContent className="container mx-auto lg:px-0 py-12 lg:py-24">
+        <CardContent className="container mx-auto lg:px-0 py-8 lg:py-12">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="space-y-8">
               {/* Logo */}
@@ -76,46 +76,11 @@ export default function NavigationBottom() {
                   </ul>
                 </div>
               </div>
-              <div className="md:grid md:grid-cols-2 md:gap-8">
-                <div>
-                  <h3 className="text-sm/6 leading-none font-semibold">
-                    Empresa
-                  </h3>
-                  <ul role="list" className="mt-6 space-y-4">
-                    {NavigationBottomLinks.company.map((item) => (
-                      <li key={item.name}>
-                        <Link
-                          href={item.href}
-                          className="text-sm/6 text-foreground"
-                        >
-                          {item.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-10 md:mt-0">
-                  <h3 className="text-sm/6 leading-none font-semibold">
-                    Legal
-                  </h3>
-                  <ul role="list" className="mt-6 space-y-4">
-                    {NavigationBottomLinks.legal.map((item) => (
-                      <li key={item.name}>
-                        <a
-                          href={item.href}
-                          className="text-sm/6 text-foreground"
-                        >
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              
             </div>
           </div>
-          <div className="mt-16 border-t border-foreground/10 pt-8 sm:mt-20 lg:mt-24">
-            <p className="text-sm/6 text-foreground">
+          <div className="mt-6 sm:mt-8 lg:mt-10 border-t border-foreground/10 pt-3 sm:pt-4">
+            <p className="text-sm text-foreground">
               &copy; {new Date().getFullYear()} HSE Franca. Todos os direitos
               reservados.
             </p>

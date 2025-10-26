@@ -159,6 +159,117 @@ export default function page() {
           </div>
         </section>
         {/* <...> End Of Call TO Action Section <...> */}
+        {/* Differenciais */}
+        <section className="space-y-8">
+          <div className="max-w-2xl">
+            <h2 className="scroll-m-20 text-3xl font-bold tracking-tight first:mt-0">
+              Por que a HSE Franca?
+            </h2>
+            <p className="text-lg/7 text-foreground/80">
+              Mais que documentos: entregamos diagnóstico, plano de ação e suporte contínuo.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="rounded-lg overflow-hidden shadow-lg border border-primary/10 bg-gradient-to-b from-background to-primary/5">
+              <CardContent className="space-y-2">
+                <CardTitle>Atendimento ponta a ponta</CardTitle>
+                <CardDescription>
+                  Da análise inicial à implementação e acompanhamento.
+                </CardDescription>
+              </CardContent>
+            </Card>
+            <Card className="rounded-lg overflow-hidden shadow-lg border border-primary/10 bg-gradient-to-b from-background to-primary/5">
+              <CardContent className="space-y-2">
+                <CardTitle>Vivência em campo</CardTitle>
+                <CardDescription>
+                  Soluções práticas e factíveis para operações reais.
+                </CardDescription>
+              </CardContent>
+            </Card>
+            <Card className="rounded-lg overflow-hidden shadow-lg border border-primary/10 bg-gradient-to-b from-background to-primary/5">
+              <CardContent className="space-y-2">
+                <CardTitle>Agilidade com qualidade</CardTitle>
+                <CardDescription>
+                  Prazos curtos, comunicação clara e entregas consistentes.
+                </CardDescription>
+              </CardContent>
+            </Card>
+            <Card className="rounded-lg overflow-hidden shadow-lg border border-primary/10 bg-gradient-to-b from-background to-primary/5">
+              <CardContent className="space-y-2">
+                <CardTitle>Relatórios objetivos</CardTitle>
+                <CardDescription>
+                  Documentos que facilitam auditorias e decisões de gestão.
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Processo */}
+        <section className="space-y-8">
+          <div className="max-w-2xl">
+            <h2 className="scroll-m-20 text-3xl font-bold tracking-tight first:mt-0">
+              Como trabalhamos
+            </h2>
+            <p className="text-lg/7 text-foreground/80">
+              Um fluxo simples para gerar resultados e conformidade.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {["Diagnóstico", "Plano", "Execução", "Acompanhamento"].map((etapa, idx) => (
+              <Card
+                key={etapa}
+                className="rounded-lg overflow-hidden shadow-lg border border-primary/10 bg-gradient-to-b from-background to-primary/5"
+              >
+                <CardContent className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex items-center justify-center size-8 rounded-full bg-primary/15 text-primary font-semibold">
+                      {idx + 1}
+                    </span>
+                    <CardTitle className="!mb-0">{etapa}</CardTitle>
+                  </div>
+                  <CardDescription>
+                    {idx === 0 && "Levantamento de riscos, documentos e rotinas."}
+                    {idx === 1 && "Definição de ações, prazos e responsabilidades."}
+                    {idx === 2 && "Implementação, treinamentos e evidências."}
+                    {idx === 3 && "Indicadores, revisões e melhoria contínua."}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="space-y-8">
+          <div className="max-w-2xl">
+            <h2 className="scroll-m-20 text-3xl font-bold tracking-tight first:mt-0">
+              Dúvidas frequentes
+            </h2>
+            <p className="text-lg/7 text-foreground/80">
+              Respostas rápidas para as perguntas mais comuns.
+            </p>
+          </div>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              "O que é PGR e quem precisa?",
+              "Quais treinamentos NR eu devo aplicar?",
+              "Como funciona a assistência em perícias?",
+              "Vocês atendem fora do Espírito Santo e São Paulo?",
+            ].map((q) => (
+              <li key={q} className="group">
+                <Link
+                  href="/questions"
+                  className="block rounded-lg border border-primary/10 bg-gradient-to-b from-background to-primary/5 p-5 shadow-md transition-colors hover:border-primary/30"
+                >
+                  <p className="font-medium">{q}</p>
+                  <p className="text-sm text-foreground/70 mt-1">Saiba mais →</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <section className="">
           <Card className="text-center border-none shadow-xl bg-gradient-to-br from-primary/15 via-primary/5 to-transparent">
             <CardContent className="space-y-4 relative px-6 py-24 overflow-hidden bg-theme isolate sm:rounded-3xl sm:px-24 xl:py-32">

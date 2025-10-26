@@ -14,7 +14,13 @@ export default function NavigationBottom() {
               {/* Logo */}
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">HSE Franca</span>
-                <Image src={`${basePath}/media/logo.png`} alt="HSE Franca" width={150} height={30} />
+                <Image
+                  src={`${basePath}/media/logo.png`}
+                  alt="HSE Franca"
+                  width={100}
+                  height={20}
+                  className="h-5 w-auto"
+                />
               </Link>
               <p className="text-sm/6 text-balance text-foreground">
                 Soluções em Segurança do Trabalho (SST), Perícia e Treinamentos

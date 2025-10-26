@@ -1,4 +1,4 @@
-interface NavigationTopLinks {
+﻿interface NavigationTopLinks {
   name: string;
   href: string;
 }
@@ -201,3 +201,4 @@ export {
   programs_info,
   NavigationTopLinks,
 };
+

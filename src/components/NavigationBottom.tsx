@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { NavigationBottomLinks } from "@/lib/data";
 import Image from "next/image";
@@ -125,3 +125,4 @@ export default function NavigationBottom() {
     </footer>
   );
 }
+

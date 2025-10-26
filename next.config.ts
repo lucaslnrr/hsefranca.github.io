@@ -1,14 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Static export for GitHub Pages
+  // Static export for GitHub Pages (user/organization site)
+  // For lucaslnrr.github.io, do NOT use basePath
   output: "export",
-  basePath: "/hsefranca.github.io",
   images: {
     unoptimized: true,
-  },
-  env: {
-    NEXT_PUBLIC_BASE_PATH: "/hsefranca.github.io",
   },
 };
 

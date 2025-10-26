@@ -2943,7 +2943,10 @@ textarea.input {
 
 /* Platform banner (Adequar Eng platform) */
 .platform-banner {
-  background: linear-gradient(140deg, #0f2d3a 0%, #0a1e29 100%);
+  background-image: url('https://formasegnr.com.br/wp-content/uploads/2021/03/10-1.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: #ffffff;
 }
 .platform-banner__inner {

@@ -2969,6 +2969,8 @@ textarea.input {
   background-size: cover;
   background-repeat: no-repeat;
   color: #ffffff;
+  max-height: 50px;
+  overflow: hidden;
 }
 .docs-banner__inner {
   width: var(--container);

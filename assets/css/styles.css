@@ -2973,7 +2973,7 @@ textarea.input {
 .docs-banner__inner {
   width: var(--container);
   margin: 0 auto;
-  padding: clamp(28px, 6vw, 56px) 0;
+  padding: clamp(14px, 3vw, 28px) 0;
   display: grid;
   gap: clamp(14px, 2.5vw, 22px);
   text-align: center;

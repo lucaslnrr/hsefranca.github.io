@@ -2962,6 +2962,24 @@ textarea.input {
 .platform-banner__actions { display: grid; gap: 10px; justify-content: center; }
 .platform-banner__link a { color: rgba(255,255,255,0.92); text-decoration: underline; word-break: break-all; }
 
+/* Documentation banner (Portal de Documentação) */
+.docs-banner {
+  background: linear-gradient(140deg, #102a3a 0%, #0b1e2a 100%);
+  color: #ffffff;
+}
+.docs-banner__inner {
+  width: var(--container);
+  margin: 0 auto;
+  padding: clamp(28px, 6vw, 56px) 0;
+  display: grid;
+  gap: clamp(14px, 2.5vw, 22px);
+  text-align: center;
+}
+.docs-banner__title { margin: 0; font-size: clamp(1.35rem, 3vw, 1.9rem); }
+.docs-banner__desc { margin: 0; color: rgba(255,255,255,0.9); }
+.docs-banner__actions { display: grid; gap: 10px; justify-content: center; }
+.docs-banner__link a { color: rgba(255,255,255,0.92); text-decoration: underline; word-break: break-all; }
+
 /* Page-specific: Treinamentos with no section margins */
 .page-treinamentos .section { margin: 0; }
 .page-treinamentos .footer { margin-top: 0; }

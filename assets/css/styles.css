@@ -2971,13 +2971,19 @@ textarea.input {
   color: #ffffff;
   max-height: 50px;
   overflow: hidden;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .docs-banner__inner {
   width: var(--container);
   margin: 0 auto;
-  padding: clamp(14px, 3vw, 28px) 0;
+  padding: 0;
   display: grid;
-  gap: clamp(14px, 2.5vw, 22px);
+  align-content: center;
+  justify-items: center;
+  gap: 6px;
   text-align: center;
 }
 .docs-banner__title { margin: 0; font-size: clamp(1.35rem, 3vw, 1.9rem); }

@@ -2964,7 +2964,10 @@ textarea.input {
 
 /* Documentation banner (Portal de Documentação) */
 .docs-banner {
-  background: linear-gradient(140deg, #102a3a 0%, #0b1e2a 100%);
+  background-image: url('../../sierefirejr.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: #ffffff;
 }
 .docs-banner__inner {

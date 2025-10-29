@@ -3,13 +3,26 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!form) return;
 
   const API_URL = 'https://mailtest.tesfire.com/api/email';
-  const submitBtn = document.getElementById('contact-submit');
+
+  // Prefer a page-specific submit button, but fallback gracefully
+  const submitBtn = document.getElementById('contact-submit') || document.getElementById('form-submit') || form.querySelector('button[type="submit"],input[type="submit"]');
 
   const get = (sel) => form.querySelector(sel);
-  const byId = (id) => document.getElementById(id);
+  const first = (selectors) => {
+    for (const s of selectors) {
+      const el = get(s);
+      if (el) return el;
+    }
+    return null;
+  };
+  const val = (selectors, fallback = '') => {
+    const el = first(selectors);
+    const v = el && typeof el.value === 'string' ? el.value.trim() : '';
+    return v || fallback;
+  };
 
   // Create a status element on the fly if missing
-  let statusEl = byId('contact-status');
+  let statusEl = document.getElementById('contact-status');
   if (!statusEl) {
     statusEl = document.createElement('div');
     statusEl.id = 'contact-status';
@@ -35,25 +48,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const lock = (v) => {
     if (submitBtn) {
       submitBtn.disabled = v;
-      submitBtn.classList.toggle('is-loading', v);
+      try { submitBtn.classList.toggle('is-loading', v); } catch (_) {}
     }
   };
 
-  form.addEventListener('submit', async (ev) => {
+  const onSubmit = async (ev) => {
     try {
-      // Let native HTML validation run; if invalid, the submit event won't fire
+      // If another listener already prevented default (e.g., validation), respect it
+      if (ev.defaultPrevented) return;
+      // We handle submission via fetch
       ev.preventDefault();
 
-      // Collect values (IDs as defined in contato.html)
-      const nome = get('#contato-nome')?.value?.trim() || '';
-      const empresa = get('#contato-empresa')?.value?.trim() || '';
-      const email = get('#contato-email')?.value?.trim() || '';
-      const telefone = get('#contato-telefone')?.value?.trim() || '';
-      const assunto = get('#contato-assunto')?.value?.trim() || 'Contato pelo site';
-      const mensagem = get('#contato-mensagem')?.value?.trim() || '';
+      // Collect values (supporting both index.html and contato.html)
+      const nome = val(['#nome', '#contato-nome', '[name="nome"]']);
+      const empresa = val(['#empresa', '#contato-empresa', '[name="empresa"]']);
+      const email = val(['#email', '#contato-email', '[name="email"]']);
+      const telefone = val(['#telefone', '#contato-telefone', '[name="telefone"]']);
+      const assunto = val(['#assunto', '#contato-assunto', '[name="assunto"]'], 'Contato pelo site');
+      const mensagem = val(['#mensagem', '#contato-mensagem', '[name="mensagem"]']);
 
+      // Minimal required checks if page didn't run its own validator
       if (!nome || !email || !mensagem) {
-        // if some required field is missing due to browser not blocking (edge cases)
         if (typeof form.reportValidity === 'function') form.reportValidity();
         return;
       }
@@ -61,11 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const payload = {
         name: nome,
         company: empresa,
-        email: email,
+        email,
         phone: telefone,
         subject: assunto,
         message: mensagem,
-        source: 'contato.html',
+        source: (window.location && window.location.pathname) ? window.location.pathname.split('/').pop() : 'unknown',
         site: (window.location && window.location.hostname) || 'localhost',
         timestamp: new Date().toISOString(),
       };
@@ -84,19 +99,18 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error(text || `Erro ${resp.status}`);
       }
 
-      // Try to parse JSON response, but don't fail if it's not JSON
-      let data = null;
-      try { data = await resp.json(); } catch (_) {}
+      // swallow JSON parsing errors
+      try { await resp.json(); } catch (_) {}
 
       setStatus('Mensagem enviada com sucesso. Obrigado!', true);
       form.reset();
-
-      // hide success after a while
       window.setTimeout(() => setStatus('', true), 6000);
     } catch (err) {
       setStatus('Falha ao enviar. Tente novamente em instantes.', false);
     } finally {
       lock(false);
     }
-  });
+  };
+
+  form.addEventListener('submit', onSubmit);
 });

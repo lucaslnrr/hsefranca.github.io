@@ -99,7 +99,8 @@ export default function page() {
               alt="Equipe de Seguran�a do Trabalho da HSE Franca"
               className="object-cover object-center rounded-xl"
             />
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="absolute inset-0 flex items-center justify-center p-4">
+            <div className="grid w-full max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Card className="relative group rounded-2xl overflow-hidden shadow-lg border border-primary/10 bg-gradient-to-b from-background to-primary/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-primary/30 ring-1 ring-transparent group-hover:ring-primary/20">
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-sky-500 to-primary/60 opacity-70 group-hover:opacity-100" />
               <CardContent className="space-y-3 text-start">
@@ -150,6 +151,7 @@ export default function page() {
                 </CardAction>
               </CardContent>
             </Card>
+          </div>
           </div>
           </div>
         </section>
@@ -350,6 +352,7 @@ export default function page() {
     </>
   );
 }
+
 
 
 

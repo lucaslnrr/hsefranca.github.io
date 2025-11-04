@@ -2,7 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('formulario');
   if (!form) return;
 
-  const API_URL = 'https://mailtest.tesfire.com/api/email';
+  // Allow overriding the API endpoint via <meta name="contact-api"> or form[data-api]
+  const API_URL =
+    (document.querySelector('meta[name="contact-api"]')?.content || '') ||
+    (form.getAttribute('data-api') || '') ||
+    'https://mailtest.tesfire.com/api/email';
 
   // Prefer a page-specific submit button, but fallback gracefully
   const submitBtn = document.getElementById('contact-submit') || document.getElementById('form-submit') || form.querySelector('button[type="submit"],input[type="submit"]');
@@ -88,25 +92,47 @@ document.addEventListener('DOMContentLoaded', () => {
       lock(true);
       setStatus('Enviando...', true);
 
-      const resp = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
+      // Use URL-encoded form to avoid CORS preflight and match server-side support
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => controller.abort(), 20000);
 
-      if (!resp.ok) {
-        const text = await resp.text().catch(() => '');
-        throw new Error(text || `Erro ${resp.status}`);
+      let resp;
+      try {
+        resp = await fetch(API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+            'Accept': 'application/json',
+          },
+          body: new URLSearchParams(payload).toString(),
+          signal: controller.signal,
+        });
+      } finally {
+        window.clearTimeout(timeoutId);
       }
 
-      // swallow JSON parsing errors
-      try { await resp.json(); } catch (_) {}
+      const contentType = resp.headers.get && resp.headers.get('content-type');
+      const isJson = contentType && contentType.toLowerCase().includes('application/json');
+
+      let data = null;
+      if (isJson) {
+        try { data = await resp.json(); } catch (_) { data = null; }
+      } else {
+        try { data = { message: await resp.text() }; } catch (_) { data = null; }
+      }
+
+      if (!resp.ok) {
+        const msg = (data && (data.message || data.error)) || `Erro ${resp.status}`;
+        throw new Error(msg);
+      }
 
       setStatus('Mensagem enviada com sucesso. Obrigado!', true);
-      form.reset();
+      try { form.reset(); } catch (_) {}
       window.setTimeout(() => setStatus('', true), 6000);
     } catch (err) {
-      setStatus('Falha ao enviar. Tente novamente em instantes.', false);
+      const msg = (err && err.message) ? String(err.message) : 'Falha ao enviar. Tente novamente em instantes.';
+      setStatus(msg, false);
+      try { console.error('Envio de contato falhou:', err); } catch (_) {}
     } finally {
       lock(false);
     }

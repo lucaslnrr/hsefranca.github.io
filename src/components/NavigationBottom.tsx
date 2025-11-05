@@ -17,9 +17,9 @@ export default function NavigationBottom() {
                 <Image
                   src={`${basePath}/media/logo.png`}
                   alt="HSE Franca"
-                  width={160}
-                  height={32}
-                  className="h-8 w-auto"
+                  width={500}
+                  height={100}
+                  className="h-[100px] w-auto"
                 />
               </Link>
               <p className="text-sm/6 text-balance text-foreground">

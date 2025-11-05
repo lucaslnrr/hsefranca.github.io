@@ -24,9 +24,9 @@ export default function NavigationTop() {
                 <Image
                   src={`${basePath}/media/logo.png`}
                   alt="HSE Franca"
-                  width={100}
-                  height={20}
-                  className="h-5 w-auto"
+                  width={160}
+                  height={32}
+                  className="h-8 w-auto"
                 />
               </Link>
               <Button

@@ -17,9 +17,9 @@ export default function NavigationBottom() {
                 <Image
                   src={`${basePath}/media/logo.png`}
                   alt="HSE Franca"
-                  width={100}
-                  height={20}
-                  className="h-5 w-auto"
+                  width={160}
+                  height={32}
+                  className="h-8 w-auto"
                 />
               </Link>
               <p className="text-sm/6 text-balance text-foreground">
@@ -82,7 +82,7 @@ export default function NavigationBottom() {
           <div className="mt-6 sm:mt-8 lg:mt-10 border-t border-foreground/10 pt-3 sm:pt-4">
             <p className="text-sm text-foreground">
               &copy; {new Date().getFullYear()} HSE Franca. Todos os direitos
-              reservados.
+              reservados • CNPJ: 63.445.635/0001-12
             </p>
           </div>
         </CardContent>

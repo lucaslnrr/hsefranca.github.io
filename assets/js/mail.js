@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return v || fallback;
   };
 
-  // Create a status element on the fly if missing
-  let statusEl = document.getElementById('contact-status');
+  // Use an existing success element if available, else create a status element on the fly
+  let statusEl = document.getElementById('form-success') || document.getElementById('contact-status');
   if (!statusEl) {
     statusEl = document.createElement('div');
     statusEl.id = 'contact-status';
@@ -45,8 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const setStatus = (msg, ok = true) => {
     if (!statusEl) return;
     statusEl.textContent = msg || '';
-    statusEl.hidden = !msg;
-    statusEl.className = ok ? 'form-success' : 'field-error';
+    const visible = Boolean(msg);
+    statusEl.hidden = !visible;
+    // apply classes with transition support
+    const baseClass = ok ? 'form-success' : 'field-error';
+    statusEl.className = visible ? (baseClass + ' is-visible') : baseClass;
   };
 
   const lock = (v) => {

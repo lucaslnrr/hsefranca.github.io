@@ -1,6 +1,27 @@
 // JR Seguran�a � navega��o e intera��es b�sicas
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Dismissible Novembro Azul banner
+  try {
+    const bannerId = 'novembro-azul-banner';
+    const storageKey = 'banner_novembro_azul_2025_dismissed';
+    const banner = document.getElementById(bannerId);
+    if (banner) {
+      const dismissed = (typeof localStorage !== 'undefined') ? localStorage.getItem(storageKey) === '1' : false;
+      if (dismissed) {
+        banner.setAttribute('hidden', 'hidden');
+      } else {
+        const closeBtn = banner.querySelector('.promo-banner__close');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => {
+            banner.setAttribute('hidden', 'hidden');
+            try { localStorage.setItem(storageKey, '1'); } catch (e) {}
+          });
+        }
+      }
+    }
+  } catch (e) { /* no-op */ }
+
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.getElementById('primary-nav');
   const year = document.getElementById('year');

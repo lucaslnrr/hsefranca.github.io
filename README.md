@@ -1,4 +1,4 @@
-# JR Segurança - Landing Page
+# HSE França - Landing Page
 
 Layout responsivo e moderno inspirado na estrutura do site solicitado, com código e conteúdo originais. Use este projeto como base para personalizar cores, textos e imagens da sua empresa.
 
